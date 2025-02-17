@@ -38,17 +38,19 @@
   </div>
 
   <!-- Gift Card Add Popup -->
-  <div class="popup-form" id="popupForm">
-    <div class="popup-content">
-      <h3>Enter Gift Card Details</h3>
-      <input type="text" id="giftCardBrand" placeholder="Gift Card Brand" />
-      <input type="text" id="giftCardCode" placeholder="Gift Card Code" />
-      <input type="date" id="giftCardExpiry" placeholder="Expiry Date" />
-      <input type="text" id="giftCardPin" placeholder="Gift Card Pin" />
-      <button id="saveGiftCardBtn">Save Gift Card</button>
-      <button class="close-popup" id="closePopupBtn">Close</button>
-    </div>
+<div class="popup-form" id="popupForm">
+  <div class="popup-content">
+    <h3>Enter Gift Card Details</h3>
+    <input type="text" id="giftCardBrand" placeholder="Gift Card Brand" />
+    <input type="text" id="giftCardCode" placeholder="Gift Card Code" />
+    <input type="date" id="giftCardExpiry" placeholder="Expiry Date" />
+    <input type="text" id="giftCardPin" placeholder="Gift Card Pin" />
+    <input type="number" id="giftCardValue" placeholder="Gift Card Value (₹)" /> <!-- New Input -->
+    <button id="saveGiftCardBtn">Save Gift Card</button>
+    <button class="close-popup" id="closePopupBtn">Close</button>
   </div>
+</div>
+
 
   <!-- Firebase Scripts -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -112,60 +114,62 @@
     });
 
     // Save Gift Card
-    document.getElementById('saveGiftCardBtn').addEventListener('click', function () {
-      const brand = document.getElementById('giftCardBrand').value;
-      const code = document.getElementById('giftCardCode').value;
-      const expiry = document.getElementById('giftCardExpiry').value;
-      const pin = document.getElementById('giftCardPin').value;
-      const userId = auth.currentUser.uid;
+document.getElementById('saveGiftCardBtn').addEventListener('click', function () {
+  const brand = document.getElementById('giftCardBrand').value;
+  const code = document.getElementById('giftCardCode').value;
+  const expiry = document.getElementById('giftCardExpiry').value;
+  const pin = document.getElementById('giftCardPin').value;
+  const value = document.getElementById('giftCardValue').value; // New Field
+  const userId = auth.currentUser.uid;
 
-      if (brand && code && expiry && pin) {
-        database.ref('giftCards/' + userId).push({
-          brand: brand,
-          code: code,
-          expiry: expiry,
-          pin: pin
-        }).then(() => {
-          loadGiftCards(userId); // Reload gift cards after adding
-          document.getElementById('popupForm').style.display = 'none'; // Close popup
-        }).catch((error) => {
-          console.error(error);
-          alert('Error adding gift card');
-        });
-      } else {
-        alert('Please fill in all fields');
-      }
+  if (brand && code && expiry && pin && value) {
+    database.ref('giftCards/' + userId).push({
+      brand: brand,
+      code: code,
+      expiry: expiry,
+      pin: pin,
+      value: value // New Field Stored
+    }).then(() => {
+      loadGiftCards(userId); // Reload gift cards after adding
+      document.getElementById('popupForm').style.display = 'none'; // Close popup
+    }).catch((error) => {
+      console.error(error);
+      alert('Error adding gift card');
     });
+  } else {
+    alert('Please fill in all fields');
+  }
+});
 
-    // Load Gift Cards
-    function loadGiftCards(userId) {
-      database.ref('giftCards/' + userId).once('value', function (snapshot) {
-        const giftCards = snapshot.val();
-        const giftCardsContainer = document.getElementById('giftCards');
-        giftCardsContainer.innerHTML = ''; // Clear existing cards
-        if (giftCards) {
-          for (let key in giftCards) {
-            const giftCard = giftCards[key];
-            const cardElement = document.createElement('div');
-            cardElement.classList.add('gift-card');
-            cardElement.innerHTML = `
-
-              <h4>${giftCard.brand} Gift Card</h4>
-              <p><strong>Code:</strong> ${giftCard.code}</p>
-              <p><strong>Expiry:</strong> ${giftCard.expiry}</p>
-              <p><strong>Pin:</strong> ${giftCard.pin}</p>
-              <button onclick="copyText('${giftCard.code}')">Copy Code</button>
-              <button onclick="copyText('${giftCard.pin}')">Copy Pin</button>
-              <button onclick="deleteGiftCard('${key}')">Delete</button>
-              <button onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}')">Share</button>
-            `;
-            giftCardsContainer.appendChild(cardElement);
-          }
-        } else {
-          giftCardsContainer.innerHTML = "<p>No gift cards found.</p>";
-        }
-      });
+// Load Gift Cards (Updated to Show Value)
+function loadGiftCards(userId) {
+  database.ref('giftCards/' + userId).once('value', function (snapshot) {
+    const giftCards = snapshot.val();
+    const giftCardsContainer = document.getElementById('giftCards');
+    giftCardsContainer.innerHTML = ''; // Clear existing cards
+    if (giftCards) {
+      for (let key in giftCards) {
+        const giftCard = giftCards[key];
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('gift-card');
+        cardElement.innerHTML = `
+          <h4>${giftCard.brand} Gift Card</h4>
+          <p><strong>Code:</strong> ${giftCard.code}</p>
+          <p><strong>Expiry:</strong> ${giftCard.expiry}</p>
+          <p><strong>Pin:</strong> ${giftCard.pin}</p>
+          <p><strong>Value:</strong> ₹${giftCard.value}</p> <!-- Show Value -->
+          <button onclick="copyText('${giftCard.code}')">Copy Code</button>
+          <button onclick="copyText('${giftCard.pin}')">Copy Pin</button>
+          <button onclick="deleteGiftCard('${key}')">Delete</button>
+          <button onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')">Share</button>
+        `;
+        giftCardsContainer.appendChild(cardElement);
+      }
+    } else {
+      giftCardsContainer.innerHTML = "<p>No gift cards found.</p>";
     }
+  });
+}
 
     // Copy Text Function
     function copyText(text) {
@@ -192,22 +196,22 @@
         });
     }
 
-    // Share Gift Card
-    function shareGiftCard(brand, code, pin) {
-      const shareText = `Gift Card Details:\nBrand: ${brand}\nCode: ${code}\nPin: ${pin}`;
-      if (navigator.share) {
-        navigator.share({
-          title: 'Gift Card',
-          text: shareText,
-        }).then(() => {
-          alert('Gift card shared successfully!');
-        }).catch((error) => {
-          alert('Error sharing: ' + error.message);
-        });
-      } else {
-        alert('Share feature is not supported in your browser.');
-      }
-    }
+    // Share Gift Card (Updated to Include Value)
+function shareGiftCard(brand, code, pin, value) {
+  const shareText = `Gift Card Details:\nBrand: ${brand}\nCode: ${code}\nPin: ${pin}\nValue: ₹${value}`;
+  if (navigator.share) {
+    navigator.share({
+      title: 'Gift Card',
+      text: shareText,
+    }).then(() => {
+      alert('Gift card shared successfully!');
+    }).catch((error) => {
+      alert('Error sharing: ' + error.message);
+    });
+  } else {
+    alert('Share feature is not supported in your browser.');
+  }
+}
 
     // Logout Button
     document.getElementById('logoutBtn').addEventListener('click', function () {
