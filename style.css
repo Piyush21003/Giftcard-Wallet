@@ -110,9 +110,8 @@ input {
   border: 1px solid #ccc;
 }
 .material-icons{
-  font-size:18px;
-  margin-left:1px;
-  
+  font-size: 18px;
+  margin-left: 1px;
 }
 
 .logout-btn {
