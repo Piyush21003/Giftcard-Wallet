@@ -172,4 +172,6 @@ input {
   border-radius: 5px;
   cursor: pointer;
 }
-
+.tool-btn{
+  background:transparent;
+}
