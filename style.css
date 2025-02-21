@@ -109,6 +109,10 @@ input {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+.material-icons{
+  font-size:20px;
+  margin-left:1px;
+}
 
 .logout-btn {
   background-color: #f44336;
