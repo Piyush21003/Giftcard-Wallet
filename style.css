@@ -24,6 +24,7 @@ img {
     }*/
 
 .dashboard {
+  font-family: 'Poppins';
   margin-top: 20px;
   text-align: left;
   display: none;
@@ -91,6 +92,7 @@ img {
 }
 
 button {
+  font-family: 'Poppins';
   display: inline-flex;
   align-items: center; /* Vertical alignment */
   justify-content: center;
