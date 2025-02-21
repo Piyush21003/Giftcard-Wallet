@@ -11,10 +11,11 @@ body {
       padding: 20px;
       text-align: center;
     }
-img{
-      width:100px
-      height:30px
+img {
+    width: 100px;
+    height: auto;
 }
+
 
     /*h1 {
       color: black;
