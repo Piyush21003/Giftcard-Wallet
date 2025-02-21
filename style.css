@@ -120,14 +120,14 @@ input {
 }
 
 .logout-btn {
-  display: inline-flex !important;
+  display: none;
   align-items: center; /* Vertical alignment */
   justify-content: center;
   background-color: #f44336;
   padding: 2px 8px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .logout-btn:hover {
