@@ -111,14 +111,14 @@ const firebaseConfig = {
           cardElement.classList.add("gift-card");
           cardElement.innerHTML = `
       <h4>${giftCard.brand} Gift Card</h4>
-      <p><strong>Code:</strong> ${giftCard.code} <button onclick="copyText('${giftCard.code}')"><span class="material-icons">content_copy</span></button></p>
+      <p><strong>Code:</strong> ${giftCard.code} <button class="tool-btn" onclick="copyText('${giftCard.code}')"><span class="material-icons">content_copy</span></button></p>
       <p><strong>Expiry:</strong> ${giftCard.expiry} </p>
-      <p><strong>Pin:</strong> ${giftCard.pin} <button onclick="copyText('${giftCard.pin}')"><span class="material-icons">content_copy</span></button></p>
+      <p><strong>Pin:</strong> ${giftCard.pin} <button class="tool-btn" onclick="copyText('${giftCard.pin}')"><span class="material-icons">content_copy</span></button></p>
       <p><strong>Value:</strong> ₹${giftCard.value}</p> <!-- Show Value -->
      
       
-      <button onclick="deleteGiftCard('${key}')"><span class="material-icons">delete</span></button>
-      <button onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')"><span class="material-icons">share</span></button>
+      <button class="tool-btn" onclick="deleteGiftCard('${key}')"><span class="material-icons">delete</span></button>
+      <button class="tool-btn" onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')"><span class="material-icons">share</span></button>
     `;
           giftCardsContainer.appendChild(cardElement);
         }
