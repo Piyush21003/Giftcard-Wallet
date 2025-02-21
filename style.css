@@ -186,3 +186,23 @@ input {
   font-size: 20px !important;
   line-height: 0 !important;
 }
+
+footer {
+        background-color: rgb(0, 0, 0);
+        bottom: 0;
+        position: fixed;
+        height: 120px;
+        width: 100%;
+        color: #927b12;
+        display: flex;
+        justify-content: space-between;
+        font-size: 30px;
+        padding-left: 20px;
+        font-family: 'Poppins';
+      }
+footer p {
+        font-size: 18px;
+      }
+footer img {
+        background: transparent;
+      }
