@@ -87,6 +87,9 @@ img {
 }
 
 button {
+  display: flex;
+  align-items: center; /* Vertical alignment */
+  justify-content: center;
   background-color: #4caf50;
   color: white;
   padding: 2px 2px;
