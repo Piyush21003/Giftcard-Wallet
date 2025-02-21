@@ -112,11 +112,11 @@ const firebaseConfig = {
           cardElement.innerHTML = `
       <h4>${giftCard.brand} Gift Card</h4>
       <p><strong>Code:</strong> ${giftCard.code} <button onclick="copyText('${giftCard.code}')"><span class="material-icons">content_copy</span></button></p>
-      <p><strong>Expiry:</strong> ${giftCard.expiry}</p>
+      <p><strong>Expiry:</strong> ${giftCard.expiry} <button onclick="copyText('${giftCard.pin}')"><span class="material-icons">content_copy</span></button></p>
       <p><strong>Pin:</strong> ${giftCard.pin}</p>
       <p><strong>Value:</strong> ₹${giftCard.value}</p> <!-- Show Value -->
      
-      <button onclick="copyText('${giftCard.pin}')">Copy Pin</button>
+      
       <button onclick="deleteGiftCard('${key}')">Delete</button>
       <button onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')">Share</button>
     `;
