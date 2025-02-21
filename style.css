@@ -94,7 +94,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  font-size: 1em;
+  font-size: 18px;
 }
 
 button:hover {
@@ -110,6 +110,7 @@ input {
   border: 1px solid #ccc;
 }
 .material-icons{
+  font-size:18px;
   margin-left:1px;
   
 }
