@@ -117,8 +117,8 @@ const firebaseConfig = {
       <p><strong>Value:</strong> ₹${giftCard.value}</p> <!-- Show Value -->
      
       
-      <button onclick="deleteGiftCard('${key}')"><span class="material-icons">Delete</span></button>
-      <button onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')"><span class="material-icons">Share</span></button>
+      <button onclick="deleteGiftCard('${key}')"><span class="material-icons">delete</span></button>
+      <button onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')"><span class="material-icons">share</span></button>
     `;
           giftCardsContainer.appendChild(cardElement);
         }
