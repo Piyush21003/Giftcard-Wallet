@@ -43,9 +43,8 @@ img {
 }*/
 
 .gift-card {
-            margin-top: 50px;
-            margin: 0px 2px;
-            padding: 4px;
+            margin: 40px 2px;
+            padding: 20px;
             background: linear-gradient(135deg, #0B132B, #1C2A4D);
             color: white;
             align-items: center;
