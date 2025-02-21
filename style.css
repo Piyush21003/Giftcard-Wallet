@@ -87,12 +87,12 @@ img {
 }
 
 button {
-  display: flex;
+  display: inline-flex;
   align-items: center; /* Vertical alignment */
   justify-content: center;
   background-color: #4caf50;
   color: white;
-  padding: 2px 2px;
+  padding: 2px 8px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -114,11 +114,11 @@ input {
 }
 
 .logout-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center; /* Vertical alignment */
   justify-content: center;
   background-color: #f44336;
-  padding: 2px 2px;
+  padding: 2px 8px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 24px;
@@ -162,13 +162,13 @@ input {
 }
 
 .close-popup {
-  display: flex;
+  display: inline-flex;
   align-items: center; /* Vertical alignment */
   justify-content: center;
   font-size: 24px;
   background-color: red;
   color: white;
-  padding: 2px 2px;
+  padding: 2px 8px;
   border-radius: 5px;
   cursor: pointer;
 }
