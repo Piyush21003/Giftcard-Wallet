@@ -176,5 +176,5 @@ input {
   background:transparent;
 }
 .material-icons {
-  line-height: 0;
+  line-height: 0 !important;
 }
