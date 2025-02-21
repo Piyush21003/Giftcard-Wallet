@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+img {
+  width: 350px;
+  height: auto;
+}
+/*h1 {
+      color: black;
+      font-size:2.5em;
+      margin: 10px;
+      text-align: center;
+      font-family: poppins;
+    }*/
+
+.dashboard {
+  margin-top: 20px;
+  text-align: left;
+  display: none;
+  color: aqua;
+}
+
+.gift-card {
+  border: 1px solid #ddd;
+  font-weight: bold;
+  color: black;
+  margin: 10px 2px;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #838996;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.gift-card h4 {
+  color: #002366;
+  font-size: 16px;
+  font-family: poppins;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+input {
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.logout-btn:hover {
+  background-color: #e53935;
+}
+
+.otp-section {
+  display: none;
+}
+
+.otp-section input {
+  width: 100%;
+}
+
+.popup-form {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.popup-content input {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.close-popup {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
