@@ -156,6 +156,7 @@ input {
 }
 
 .close-popup {
+  font-size: 24px;
   background-color: red;
   color: white;
   padding: 8px 8px;
