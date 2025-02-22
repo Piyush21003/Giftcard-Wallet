@@ -106,7 +106,7 @@ button {
 }
 
 button:hover {
-  background-color: none;
+  background-color: #45a049;
 }
 
 input {
@@ -186,7 +186,7 @@ input {
   line-height: 0 !important;
 }
 .material-icons:hover {
-  background-color: #f5f5f5;
+  background-color: none;
 }
 
 h3{
