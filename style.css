@@ -24,7 +24,7 @@ img {
     }*/
 
 .dashboard {
-  font-family: 'Poppins';
+  font-family:"JetBrains Mono", serif;
   margin-top: 20px;
   text-align: left;
   display: none;
