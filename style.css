@@ -106,7 +106,7 @@ button {
 }
 
 button:hover {
-  background-color: white;
+  background-color:  #f5f5f5;
 }
 
 input {
@@ -184,6 +184,9 @@ input {
 .material-icons {
   font-size: 20px !important;
   line-height: 0 !important;
+}
+.material-icons:hover {
+  background-color: #f5f5f5;
 }
 
 h3{
