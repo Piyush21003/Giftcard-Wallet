@@ -1,6 +1,6 @@
 {
-  "name": "Zyft Wallet",
-  "short_name": "Zyft App",
+  "name": "test Wallet",
+  "short_name": "test App",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",
