@@ -240,5 +240,5 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.getElementById("loader").style.display = "none"; // Hide loader
         document.getElementById("container").style.display = "block"; // Show main page
-    }, 5000); // Loader 3 sec tak dikhega
+    }, 9000); // Loader 3 sec tak dikhega
 });
