@@ -2,6 +2,7 @@
   "name": "test Wallet",
   "short_name": "test App",
   "start_url": "/Giftcard-Wallet/index.html",
+  "scope":"/Giftcard-Wallet/"
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
