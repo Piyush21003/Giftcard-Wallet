@@ -88,7 +88,7 @@ const firebaseConfig = {
           .then(() => {
             loadGiftCards(userId); // Gift cards reload
 
-            // 🎉 Animation दिखाओ
+            //  Animation दिखाओ
             let animation = document.getElementById("successAnimation");
             animation.style.display = "block"; // Show animation
             animation.play(); // Start animation
