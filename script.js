@@ -96,7 +96,7 @@ const firebaseConfig = {
             // 3 सेकंड बाद animation hide कर दो
             setTimeout(() => {
               animation.style.display = "none";
-            }, 3000);
+            }, 8000);
 
             document.getElementById("popupForm").style.display = "none"; // Close popup
           })
