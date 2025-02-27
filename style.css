@@ -194,6 +194,7 @@ h3{
   color: #927b12;
 }
 #loader {
+    color:blue;
     position: fixed;
     top: 0;
     left: 0;
