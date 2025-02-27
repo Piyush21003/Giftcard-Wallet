@@ -65,7 +65,52 @@ const firebaseConfig = {
     });
 
   // Save Gift Card
-  document
+    document
+    .getElementById("saveGiftCardBtn")
+    .addEventListener("click", function () {
+      const brand = document.getElementById("giftCardBrand").value;
+      const code = document.getElementById("giftCardCode").value;
+      const expiry = document.getElementById("giftCardExpiry").value;
+      const pin = document.getElementById("giftCardPin").value;
+      const value = document.getElementById("giftCardValue").value;
+      const userId = auth.currentUser.uid;
+
+      if (brand && code && expiry && pin && value) {
+        database
+          .ref("giftCards/" + userId)
+          .push({
+            brand: brand,
+            code: code,
+            expiry: expiry,
+            pin: pin,
+            value: value,
+          })
+          .then(() => {
+            loadGiftCards(userId); // Gift cards reload
+
+            // 🎉 Animation दिखाओ
+            let animation = document.getElementById("successAnimation");
+            animation.style.display = "block"; // Show animation
+            animation.play(); // Start animation
+
+            // 3 सेकंड बाद animation hide कर दो
+            setTimeout(() => {
+              animation.style.display = "none";
+            }, 3000);
+
+            document.getElementById("popupForm").style.display = "none"; // Close popup
+          })
+          .catch((error) => {
+            console.error(error);
+            alert("Error adding gift card");
+          });
+      } else {
+        alert("Please fill in all fields");
+      }
+    });
+
+
+  /*document
     .getElementById("saveGiftCardBtn")
     .addEventListener("click", function () {
       const brand = document.getElementById("giftCardBrand").value;
@@ -96,7 +141,7 @@ const firebaseConfig = {
       } else {
         alert("Please fill in all fields");
       }
-    });
+    });     */
 
   // Load Gift Cards (Updated to Show Value)
   function loadGiftCards(userId) {
