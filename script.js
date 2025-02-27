@@ -234,3 +234,11 @@ const firebaseConfig = {
           alert("Error logging out: " + error.message);
         });
     });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none"; // Hide loader
+        document.getElementById("container").style.display = "block"; // Show main page
+    }, 5000); // Loader 3 sec tak dikhega
+});
