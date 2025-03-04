@@ -185,7 +185,26 @@ const firebaseConfig = {
   }
 
   // Delete Gift Card
-  function deleteGiftCard(giftCardId) {
+    function deleteGiftCard(giftCardId) {
+    const confirmDelete = confirm("Kya aap sure hain ki aap is gift card ko delete karna chahte hain?");
+    
+    if (confirmDelete) {
+        const userId = auth.currentUser.uid;
+        database
+            .ref("giftCards/" + userId + "/" + giftCardId)
+            .remove()
+            .then(() => {
+                alert("✅ Gift card successfully deleted!");
+                loadGiftCards(userId); // List refresh karega
+            })
+            .catch((error) => {
+                console.error(error);
+                alert("❌ Error deleting gift card: " + error.message);
+            });
+    }
+}
+
+  /*function deleteGiftCard(giftCardId) {
     const userId = auth.currentUser.uid;
     database
       .ref("giftCards/" + userId + "/" + giftCardId)
@@ -198,7 +217,7 @@ const firebaseConfig = {
         console.error(error);
         alert("Error deleting gift card");
       });
-  }
+  }*/
 
   // Share Gift Card (Updated to Include Value)
   function shareGiftCard(brand, code, pin, value) {
