@@ -186,7 +186,7 @@ const firebaseConfig = {
 
   // Delete Gift Card
     function deleteGiftCard(giftCardId) {
-    const confirmDelete = confirm("Kya aap sure hain ki aap is gift card ko delete karna chahte hain?");
+    const confirmDelete = confirm("🗂️ Remove this gift card from your wallet? Confirm to delete!");
     
     if (confirmDelete) {
         const userId = auth.currentUser.uid;
