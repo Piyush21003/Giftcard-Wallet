@@ -262,18 +262,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000); // Loader 5 sec tak dikhega
 });
 
-document.getElementById("searchBar").addEventListener("input", function () {
-    let filter = this.value.toLowerCase();
-    let giftCards = document.querySelectorAll(".gift-card");
+document.addEventListener("DOMContentLoaded", function () {
+    let searchBar = document.getElementById("searchBar");
+    if (searchBar) {
+        searchBar.addEventListener("input", function () {
+            let filter = this.value.toLowerCase();
+            let giftCards = document.querySelectorAll(".gift-card");
 
-    giftCards.forEach((card) => {
-        let brand = card.querySelector("h4").textContent.toLowerCase();
-        let code = card.querySelector("p:nth-child(2)").textContent.toLowerCase();
+            giftCards.forEach((card) => {
+                let brand = card.querySelector("h4")?.textContent.toLowerCase() || "";
+                let code = card.querySelector("p:nth-child(2)")?.textContent.toLowerCase() || "";
 
-        if (brand.includes(filter) || code.includes(filter)) {
-            card.style.display = "block"; // Show matching cards
-        } else {
-            card.style.display = "none"; // Hide non-matching cards
-        }
-    });
+                if (brand.includes(filter) || code.includes(filter)) {
+                    card.style.display = "block"; // Show matching cards
+                } else {
+                    card.style.display = "none"; // Hide non-matching cards
+                }
+            });
+        });
+    } else {
+        console.error("Element with ID 'searchBar' not found!");
+    }
 });
+
