@@ -284,7 +284,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Element with ID 'searchBar' not found!");
     }
 });*/
-
 document.getElementById("searchGiftCard").addEventListener("input", function () {
     let filter = this.value.toLowerCase();
     let giftCards = document.querySelectorAll(".gift-card");
