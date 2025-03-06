@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    let searchBar = document.getElementById("searchBar");
+    let searchBar = document.getElementById("searchGiftCard");
     if (searchBar) {
         searchBar.addEventListener("input", function () {
             let filter = this.value.toLowerCase();
