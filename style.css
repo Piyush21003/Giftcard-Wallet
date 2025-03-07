@@ -206,3 +206,14 @@ h3{
     align-items: center;
     z-index: 9999;
 }
+
+#searchGiftCard {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 119, 255, 0.6);
+    background-color: #121d49;
+    color: green;
+}
