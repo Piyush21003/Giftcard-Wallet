@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.getElementById("loader").style.display = "none"; // Hide loader
         document.getElementById("container").style.display = "block"; // Show main page
-    }, 6000); // Loader 5 sec tak dikhega
+    }, 4000); // Loader 5 sec tak dikhega
 });
 
 /*document.addEventListener("DOMContentLoaded", function () {
