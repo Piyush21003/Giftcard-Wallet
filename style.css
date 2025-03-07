@@ -216,4 +216,6 @@ h3{
     border: 2px solid rgba(0, 119, 255, 0.6);
     background-color: #121d49;
     color: green;
+    font-weight: bold;
+    font-size: 17px;
 }
