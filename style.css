@@ -94,10 +94,12 @@ button {
   font-size: 24px;
 }
 
-/*button:hover {
+ button:hover {
   background-color: #45a049;
-}*/
-
+}
+.tool-btn:hover {
+  background-color: none;
+}
 input {
   padding: 10px;
   margin-top: 10px;
