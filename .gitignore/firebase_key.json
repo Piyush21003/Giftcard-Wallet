@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "giftcard-wallet-8a82f",
+  "private_key_id": "fd5b732171fa3b19c978f740882229e9c7f46306",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDphMgBuczwfaDw\n8QvudQXLtspthIevZaANOtlkxP8aWSw8u2uvYF5L3znCC5hd9tGmiRJGVnodjmBX\n4i4WBUIxlSlTlvCZ/EJvzGlo9JLlZGZeDESua6J4B8zvS/O+ZbF9Lly+vSYUoAkl\nQyVQd8LTdz8Gqfy4M6X5Ub6mIFQpPByZJ+u05Qna8Sm/VF6u5QglTuS2M21MrQ5Q\nthP6ZhcwTiwsi6AooRaASNVosAtbEAi2iBVrnJ1T6LNuXb6APx6Mp/3cK+abYDrh\nuPSB09R6W9UHC0a0QiVMmlXzA37zhVFyC1gErFuZCTbKCHuInGXt9e1yveUaPWnm\n19abOQOLAgMBAAECggEAGJ23Kbto16cempeGXvY2DLHxp9bTKNGpLAvak81SaPgi\neip1oRCjEBNxdrubLbiRhCEp7IE8MTZrgIgmvIqEXk6vgxDDvy/A3yEosXgqrgTF\n578aVFqjT0zfNRCIGreEnMIQ48hzpbPzEtr/qXpebsVAvxaXPeGv6tbLpp580LXC\nb5g6Vio5W1KwLE5s3JaDJ96rZ3m6iQxPBXaR05S+7kylsOE9Xn2+VTwACd+KOAsr\nBYkimFqervNU8/OBfAM99pF3YYQKOQAWroj2EHtDuVs23RpAbDZ4jg1pHjkJvBHT\n2Tj+K2p3ifmH0VLhl7yZgo+AmUwbCBc1EoJTBBlghQKBgQD1EHOSkFjGyfQcmNc6\nnSHp7bQA0iBXxcv0rxhiXv5lZK5VDh21sThbESdGmdtVIKovATf66CXCjDGN6bzo\ntQ3hYPF05loVW97ACBUXN3E9fRue5WuFlwnJyYLtsx0kqyM6WQX/X7kr7haYyyy0\nEnSNMlDZHAIUf0ixBAiG72pk7QKBgQDz8G+mOQmaOEjUo/TE8lfxkb/vk58ZWhWp\nRJ7/n1lMQsY/vrLBn1Ui25AC1Zc23T5m8FsC+8bIV579YEvslRUdT07H2DcGxg/4\noal5hRs7MpOPcU7qizlnVP7LvU80ITs9gRRW3nlZMOIikWzki8VE39kQFbYwUCsh\n8x5B9puzVwKBgEKu9FPYVV/aSkORz1cStMy7srRaeRSJLQNqtb7mzGB4sftQ+QKc\ns5IMK9zJNuaGGejqcvoiO0wh68YK6S2FPr6qK2m82JxhQE6OpHaJzpWFuoNVOBnE\nzJQM8kSN7YsxykcxPDGOMYvjoGB5QLPLJc3Z+CfruCEttXD9gPh+ozvNAoGAfiPp\niBncdkv+lT6HFsR+Z2NHzfoW/kQQCWx7j5F12rJ404On6embW6AP0vdh7zPuzcoi\nNeO+AeEVTM5b1GWu+m4FPd/3bGBE5/uoqDcFQtI/baBY/32o3F8eNnqZF0rL2F0E\nCHuYYl+dv+RVW8VO5/Ocye2APXFnLHIMRm3gS5cCgYBgywg+BHguq7+lbYln8Pe2\nZ+0Xool0IEYupYI9dJcLqdva7n0nHUltVj5OEPo6NxT78kOZ5EE0dMhligYrBuP7\nJ6wYnDkh3n9soyfnXqVd26Euc7wahQPWiOKp1vfcRAbMB744/gYKW2iyXUGu52Bb\nrMEj9dte1miZ9PwzI7KdAw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@giftcard-wallet-8a82f.iam.gserviceaccount.com",
+  "client_id": "102605459685634883615",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40giftcard-wallet-8a82f.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
