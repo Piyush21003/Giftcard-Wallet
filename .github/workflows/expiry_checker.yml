@@ -20,6 +20,9 @@ jobs:
 
       - name: Install Dependencies
         run: pip install firebase-admin
+        
+      - name: Create Firebase Key File
+        run: echo '${{ secrets.FIREBASE_KEY }}' > firebase_key.json
 
       - name: Run Expiry Checker
         env:
