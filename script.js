@@ -1,6 +1,6 @@
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.API_KEY,
+    apiKey: "AIzaSyAE3ISmt0VVUZX-H-dy5YEn1maw9wRS-U0",
     authDomain: "giftcard-wallet-8a82f.firebaseapp.com",
     projectId: "giftcard-wallet-8a82f",
     storageBucket: "giftcard-wallet-8a82f.appspot.com",
