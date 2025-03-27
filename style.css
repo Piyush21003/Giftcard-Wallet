@@ -216,3 +216,67 @@ h3{
     border: 2px solid rgba(0, 119, 255, 0.6);
     background-color: #121d49;
 }
+
+ .navbar {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+.navbar.logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin: 0 10px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+        }
+        .nav-links a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+        /* Hamburger Icon */
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            display: none; /* By default hidden */
+        }
+        /* Mobile Menu (Hidden Initially) */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: #333;
+            width: 200px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .mobile-menu a {
+            display: block;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+        }
+        .mobile-menu a:hover {
+            background-color: #575757;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .menu-icon {
+                display: block;
+            }
+        }
