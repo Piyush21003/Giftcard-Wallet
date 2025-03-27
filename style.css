@@ -280,3 +280,15 @@ h3{
                 display: block;
             }
         }
+/* Close Button */
+.close-btn {
+    display: block;
+    text-align: right;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
+.close-btn:hover {
+    color: #ff4d4d;
+}
