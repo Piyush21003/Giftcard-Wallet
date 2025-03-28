@@ -208,6 +208,11 @@ h3{
     font-size: 17px;
 }
 
+.search-container{
+    justify-content:center;
+    align-items:center;
+}
+
 .material-symbols-outlined{
   font-size: 34px !important;
 }
