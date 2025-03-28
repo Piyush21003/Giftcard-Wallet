@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("last-login").innerText = user.metadata.lastSignInTime;
         } else {
             console.log("Please login");
-            window.location.href = "index.html";
+            
         }
     });
 });
