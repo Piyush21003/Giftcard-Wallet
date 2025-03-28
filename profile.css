@@ -84,3 +84,33 @@ img {
 .close-btn:hover {
     color: #ff4d4d;
 }
+
+/*ProfileCSS*/
+.profile-container {
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.profile-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    display: block;
+    margin: auto;
+}
+
+.profile-container h2 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.profile-container p {
+    font-size: 14px;
+    color: #555;
+}
