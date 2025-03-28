@@ -217,7 +217,8 @@ h3{
     background-color: #121d49;
 }
 
- .navbar {
+ .navbar {  border: 2px solid rgba(0, 119, 255, 0.6);
+            border-radius: 18px;
             background-color: #333;
             color: white;
             display: flex;
