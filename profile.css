@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: poppins;
   background-color: #000000;
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@ img {
             padding: 10px 20px;
         }
 .navbar.logo {
-            font-size: 32px;
+            font-size: 40px;
             font-weight: bold;
         }
 .nav-links {
