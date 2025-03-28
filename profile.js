@@ -16,6 +16,16 @@ const firebaseConfig = {
   const auth = firebase.auth();
   const database = firebase.database();
 
+//navbar
+function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
 // Profile Page Data Fetch
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
