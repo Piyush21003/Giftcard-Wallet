@@ -296,7 +296,7 @@ h3{
 /*displaycard in flexwrap*/
 #giftCards{
   display:flex;
-  flex-wrap:wrap-reverse;
+  flex-wrap:wrap;
   justify-content:space-around;
   
 }
