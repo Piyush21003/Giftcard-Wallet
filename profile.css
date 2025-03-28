@@ -110,11 +110,15 @@ img {
 }
 
 .profile-container h2 {
+    color:#927b12;
     margin: 10px 0;
     font-size: 22px;
 }
 
 .profile-container p {
     font-size: 14px;
-    color: #555;
+    color: #c36c18;
+}
+.profile-container span{
+  color:rgba(0,119,255,0.6)
 }
