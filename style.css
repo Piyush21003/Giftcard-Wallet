@@ -223,15 +223,15 @@ h3{
     background-color: #121d49;
 }
 
- .navbar {  border: 2px solid rgba(0, 119, 255, 0.6);
+ .navbar {  font-family:'poppins';
+            border: 2px solid rgba(0, 119, 255, 0.6);
             border-radius: 18px;
             background-color: #333;
             color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            font-family:poppins
+            padding: 4px 20px;
         }
 .navbar.logo {
             font-size: 40px;
