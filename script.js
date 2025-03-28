@@ -288,3 +288,28 @@ function toggleMenu() {
                 menu.style.display = "block";
             }
         }
+
+
+// Profile Page Data Fetch
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        document.getElementById("login-btn")?.style.display = "none";
+        document.getElementById("logout-btn")?.style.display = "block";
+        document.getElementById("profile-link")?.style.display = "block";
+
+        if (window.location.pathname.includes("profile.html")) {
+            document.getElementById("user-name").innerText = user.displayName || "No Name";
+            document.getElementById("user-email").innerText = user.email || "No Email";
+            document.getElementById("profile-img").src = user.photoURL || "default-avatar.png";
+            document.getElementById("user-uid").innerText = user.uid;
+            document.getElementById("last-login").innerText = user.metadata.lastSignInTime;
+        }
+    } else {
+        document.getElementById("logout-btn")?.style.display = "none";
+        document.getElementById("profile-link")?.style.display = "none";
+
+        if (window.location.pathname.includes("profile.html")) {
+            window.location.href = "index.html"; // Agar login nahi hai toh wapas bhej do
+        }
+    }
+});
