@@ -292,17 +292,3 @@ function toggleMenu() {
 
 // Profile Page Data Fetch
 
-document.addEventListener("DOMContentLoaded", function() {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            document.getElementById("user-name").innerText = user.displayName || "No Name";
-            document.getElementById("user-email").innerText = user.email || "No Email";
-            document.getElementById("profile-img").src = user.photoURL || "default-avatar.png";
-            document.getElementById("user-uid").innerText = user.uid;
-            document.getElementById("last-login").innerText = user.metadata.lastSignInTime;
-        } else {
-            console.log("Please login");
-            
-        }
-    });
-});
