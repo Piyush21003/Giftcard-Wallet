@@ -31,6 +31,7 @@ img {
 }
 
 .gift-card {
+            width: 360px;
             margin: 25px 2px;
             padding: 10px;
             background: linear-gradient(135deg, #0B132B, #1C2A4D);
@@ -51,7 +52,7 @@ img {
 .gift-card::before {
             content: "";
             position: absolute;
-            width: 90px;
+            /*width: 90px;*/
             height: 90px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
@@ -62,7 +63,7 @@ img {
 .gift-card::after {
             content: "";
             position: absolute;
-            width: 110px;
+            /*width: 110px;*/
             height: 110px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 50%;
