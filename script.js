@@ -1,5 +1,5 @@
 // Firebase configuration
-/*const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyAE3ISmt0VVUZX-H-dy5YEn1maw9wRS-U0",
     authDomain: "giftcard-wallet-8a82f.firebaseapp.com",
     projectId: "giftcard-wallet-8a82f",
@@ -14,7 +14,7 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-  const database = firebase.database();*/
+  const database = firebase.database();
 
   // Track Auth State
   auth.onAuthStateChanged((user) => {
