@@ -1,124 +1,160 @@
 body {
-  font-family: poppins;
-  background-color: #000000;
-  margin: 0;
-  padding: 0;
-}
-img {
-  width: 350px;
-  height: auto;
-}
+    font-family: poppins;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    width: 350px;
+    height: auto;
+  }
+  
+  .navbar {   border: 2px solid rgba(0, 119, 255, 0.6);
+              border-radius: 18px;
+              background-color: #333;
+              color: white;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 4px 20px;
+          }
+  .navbar.logo {
+              font-size: 40px;
+              font-weight: bold;
+          }
+  .nav-links {
+              list-style: none;
+              display: flex;
+          }
+  .nav-links li {
+              margin: 0 10px;
+          }
+  .nav-links a {
+              text-decoration: none;
+              color: white;
+              padding: 10px;
+          }
+  .nav-links a:hover {
+              background-color: #575757;
+              border-radius: 5px;
+          }
+          /* Hamburger Icon */
+  .menu-icon {
+              font-size: 30px;
+              cursor: pointer;
+              display: none; /* By default hidden */
+          }
+          /* Mobile Menu (Hidden Initially) */
+  .mobile-menu {
+              border: 2px solid rgba(0, 119, 255, 0.6);
+              border-radius: 10px;
+              display: none;
+              position: absolute;
+              top: 80px;
+              right: 10px;
+              background-color: #333;
+              width: 200px;
+              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+          }
+  .mobile-menu a {
+              background-color: #000000;
+              display: block;
+              color: white;
+              padding: 12px;
+              text-decoration: none;
+          }
+  .mobile-menu a:hover {
+              background-color: #575757;
+          }
+  
+   /* Responsive Design */
+   @media screen and (max-width: 768px) {
+              .nav-links {
+                  display: none;
+              }
+              .menu-icon {
+                  display: block;
+              }
+          }
+  /* Close Button */
+  .close-btn {
+      display: block;
+      text-align: right;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+  }
+  .close-btn:hover {
+      color: #ff4d4d;
+  }
+  
+  /*ProfileCSS*/
+  .profile-container {
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      background: #333;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-top: 50px;
+      border: 2px solid rgba(0, 119, 255, 0.6);
+  }
+  
+  .profile-container img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      display: block;
+      margin: auto;
+  }
+  
+  .profile-container h2 {
+      color:#927b12;
+      margin: 10px 0;
+      font-size: 22px;
+  }
+  
+  .profile-container p {
+      font-size: 14px;
+      color: #c36c18;
+  }
+  .profile-container span{
+    color:rgba(0,119,255,0.6)
+  }
 
-.navbar {   border: 2px solid rgba(0, 119, 255, 0.6);
-            border-radius: 18px;
-            background-color: #333;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 4px 20px;
-        }
-.navbar.logo {
-            font-size: 40px;
-            font-weight: bold;
-        }
-.nav-links {
-            list-style: none;
-            display: flex;
-        }
-.nav-links li {
-            margin: 0 10px;
-        }
-.nav-links a {
-            text-decoration: none;
-            color: white;
-            padding: 10px;
-        }
-.nav-links a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-        /* Hamburger Icon */
-.menu-icon {
-            font-size: 30px;
-            cursor: pointer;
-            display: none; /* By default hidden */
-        }
-        /* Mobile Menu (Hidden Initially) */
-.mobile-menu {
-            border: 2px solid rgba(0, 119, 255, 0.6);
-            border-radius: 10px;
-            display: none;
-            position: absolute;
-            top: 80px;
-            right: 10px;
-            background-color: #333;
-            width: 200px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        }
-.mobile-menu a {
-            background-color: #000000;
-            display: block;
-            color: white;
-            padding: 12px;
-            text-decoration: none;
-        }
-.mobile-menu a:hover {
-            background-color: #575757;
-        }
-
- /* Responsive Design */
- @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .menu-icon {
-                display: block;
-            }
-        }
-/* Close Button */
-.close-btn {
-    display: block;
-    text-align: right;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-}
-.close-btn:hover {
-    color: #ff4d4d;
-}
-
-/*ProfileCSS*/
-.profile-container {
+  .profileopt{
+    background-color: #333;
+    border-radius: 8px;
     width: 300px;
     margin: auto;
-    padding: 20px;
-    background: #333;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 50px;
-}
-
-.profile-container img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #ddd;
-    display: block;
+    margin-top: 10px;
+    padding:20px;
+    text-align: center;
+    border: 2px solid rgba(0, 119, 255, 0.6);
+  }
+  #option{
+    border: 2px solid rgba(0,119,255,0.6);
+    border-radius: 8px;
+    padding: 8px;
+    width: 180px;
     margin: auto;
-}
-
-.profile-container h2 {
-    color:#927b12;
-    margin: 10px 0;
-    font-size: 22px;
-}
-
-.profile-container p {
-    font-size: 14px;
-    color: #c36c18;
-}
-.profile-container span{
-  color:rgba(0,119,255,0.6)
-}
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 17px;
+  }
+  #option a{
+    text-decoration: none;
+    color:rgb(208, 206, 206);
+  }
+  #option:hover{
+    background-color: rgba(0, 119, 255, 0.6);
+  }
+  marquee{
+    color: rgb(159, 131, 61);
+    margin-top: 40PX;
+  }
