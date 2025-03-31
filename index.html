@@ -50,16 +50,25 @@
     
     <div class="container" id="container">
       
-      <!-- Google Sign In -->
+      <!-- Google Sign In
+      <button id="googleSignInBtn">Sign-In with <i class="fab fa-google"></i><span class="material-icons">login</span></button>
+      <!-- Logout Button
+      <button class="logout-btn" id="logoutBtn" style="display: none">
+        Logout<span class="material-icons">logout</span>
+      </button> -->
+
+      <!-- dashboard -->
+      <div class="dashboard" id="dashboard">
+      
+      <div id="loginout"
+      <h3>Welcome <span id="userName"></span></h3>
       <button id="googleSignInBtn">Sign-In with <i class="fab fa-google"></i><span class="material-icons">login</span></button>
       <!-- Logout Button -->
       <button class="logout-btn" id="logoutBtn" style="display: none">
         Logout<span class="material-icons">logout</span>
       </button>
-
-      <!-- dashboard -->
-      <div class="dashboard" id="dashboard">
-        <h3>Welcome <span id="userName"></span></h3>
+      </div>
+        
         
         <div class="search-container"> 
           <input type="text" id="searchGiftCard" placeholder="Search Gift Card...">
