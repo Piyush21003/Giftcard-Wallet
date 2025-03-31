@@ -19,8 +19,8 @@ const firebaseConfig = {
   // Track Auth State
   auth.onAuthStateChanged((user) => {
     if (user) {
-      document.getElementById("userName").textContent =
-        user.displayName || user.phoneNumber;
+      document.getElementById("userName").textContent = 
+      `Welcome ${user.displayName || user.phoneNumber}`;
       document.getElementById("dashboard").style.display = "block";
       document.getElementById("googleSignInBtn").style.display = "none";
       document.getElementById("logoutBtn").style.display = "inline-block"; // Show logout
