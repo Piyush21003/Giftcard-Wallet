@@ -25,7 +25,7 @@ img {
 
 .dashboard {
   font-family:"JetBrains Mono", serif;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: left;
   display: none;
 }
@@ -182,7 +182,7 @@ input {
     border: 2px solid rgba(0, 119, 255, 0.6);
     border-radius: 10px;
     padding: 5px;
-    width: 301px;
+    width: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -271,6 +271,7 @@ input {
         }
         /* Mobile Menu (Hidden Initially) */
         .mobile-menu {
+            z-index: 9999;
             border: 2px solid rgba(0, 119, 255, 0.6);
             border-radius: 10px;
             display: none;
