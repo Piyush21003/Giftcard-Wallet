@@ -326,3 +326,8 @@ input {
   justify-content:center;
   align-items:center;
 }
+
+.gift-card:hover {
+  transform: translateY(-15px); /* Card upar jayega */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Shadow deep ho jayega */
+}
