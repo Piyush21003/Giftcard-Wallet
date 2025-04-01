@@ -40,10 +40,8 @@
 
     <div class="carousel-container">
       <div class="carousel">
-          <div class="slide"><img src="https://static.woohoo.in/media/catalog/category/giting-dhamaka-1440x274.jpg" alt="Image 1"></div>
-          <div class="slide"><img src="https://static.woohoo.in/media/assets/banner/bb-1440x274.jpg" alt="Image 2"></div>
-          <div class="slide"><img src="https://cdn.gyftr.com/gyftrweb/banners/home_zepto-d1741001934.gif?format=webp&width=3840&quality=75" alt="Image 3"></div>
           <div class="slide"><img src="https://cdn.gyftr.com/gyftrweb/banners/home_ipl-d1742534474.gif?format=webp&width=3840&quality=75"></div>
+          <div class="slide"><img src="https://cdn.gyftr.com/gyftrweb/banners/home_zepto-d1741001934.gif?format=webp&width=3840&quality=75" alt="Image 3"></div>
           <div class="slide"><img src="https://cdn.gyftr.com/gyftrweb/banners/home_ipl-hotstar-d1742287884.png?format=webp&width=3840&quality=75" alt="Image 5"></div>
       </div>
       <button class="prev">&#10094;</button>
@@ -103,7 +101,7 @@
       dots.forEach(dot => dot.addEventListener('click', e => showSlide(parseInt(e.target.dataset.index))));
 
       // Auto-slide
-      setInterval(() => showSlide(index + 1), 4000);
+      setInterval(() => showSlide(index + 1), 5000);
   </script>
   </body>
 </html>
