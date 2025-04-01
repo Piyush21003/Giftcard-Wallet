@@ -46,6 +46,7 @@ img {
         }
         /* Mobile Menu (Hidden Initially) */
 .mobile-menu {
+            z-index: 9999;
             border: 2px solid rgba(0, 119, 255, 0.6);
             border-radius: 10px;
             display: none;
