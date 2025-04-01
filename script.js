@@ -110,39 +110,6 @@ const firebaseConfig = {
     });
 
 
-  /*document
-    .getElementById("saveGiftCardBtn")
-    .addEventListener("click", function () {
-      const brand = document.getElementById("giftCardBrand").value;
-      const code = document.getElementById("giftCardCode").value;
-      const expiry = document.getElementById("giftCardExpiry").value;
-      const pin = document.getElementById("giftCardPin").value;
-      const value = document.getElementById("giftCardValue").value; // New Field
-      const userId = auth.currentUser.uid;
-
-      if (brand && code && expiry && pin && value) {
-        database
-          .ref("giftCards/" + userId)
-          .push({
-            brand: brand,
-            code: code,
-            expiry: expiry,
-            pin: pin,
-            value: value, // New Field Stored
-          })
-          .then(() => {
-            loadGiftCards(userId); // Reload gift cards after adding
-            document.getElementById("popupForm").style.display = "none"; // Close popup
-          })
-          .catch((error) => {
-            console.error(error);
-            alert("Error adding gift card");
-          });
-      } else {
-        alert("Please fill in all fields");
-      }
-    });     */
-
   // Load Gift Cards (Updated to Show Value)
   function loadGiftCards(userId) {
     database.ref("giftCards/" + userId).once("value", function (snapshot) {
