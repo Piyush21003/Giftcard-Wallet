@@ -37,17 +37,73 @@
         
         <a href="/Giftcard-Wallet/profile.html">Profile</a>
     </div>
+
+    <div class="carousel-container">
+      <div class="carousel">
+          <div class="slide"><img src="img1.jpg" alt="Image 1"></div>
+          <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
+          <div class="slide"><img src="img3.jpg" alt="Image 3"></div>
+          <div class="slide"><img src="img4.jpg" alt="Image 4"></div>
+          <div class="slide"><img src="img5.jpg" alt="Image 5"></div>
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+      <div class="dots"></div>
+  </div>
+
     <div class="buyoptions">
       <div id="buyopt">
-        
+        <div id="buyimg"><img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/0a/f7/e6/0af7e6e3-b392-b905-723f-2e20b2be2563/source/512x512bb.jpg"></div>
+        <div id="buyername">Woohoo</div>
+        <div id="buyoffers">🏷️ 5% OFF</div>
+        <div id="buybtn"><a href="">Buy NOW</a></div>
       </div>
       <div id="buyopt">
-        
+        <div id="buyimg"><img src="https://play-lh.googleusercontent.com/2C0tO2kiSkuQRpcK5hLWOkiMpDQMFnkV8_cppdWOl7mLYGc7j8MDZBXqNrPjLFdWmA"></div>
+        <div id="buyername">Gyftr</div>
+        <div id="buyoffers">🏷️ 3% OFF</div>
+        <div id="buybtn"><a href="">Buy NOW</a></div>
       </div>
       <div id="buyopt">
-        
+        <div id="buyimg"><img src="https://play-lh.googleusercontent.com/xzC_MDSWW4rwuHnWOsym3VbpY1CrQudNAtWLLg5BuyDz0upMnLVQtSZfTlM0sSmbafe8"></div>
+        <div id="buyername">Zingoy</div>
+        <div id="buyoffers">🏷️ 4% OFF</div>
+        <div id="buybtn"><a href="">Buy NOW</a></div>
       </div>
     </div>
+
     <script src="buygc.js" defer></script>
+    <script>
+      let index = 0;
+      const slides = document.querySelectorAll('.slide');
+      const totalSlides = slides.length;
+      const carousel = document.querySelector('.carousel');
+      const dotsContainer = document.querySelector('.dots');
+
+      // Create dots dynamically
+      slides.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.classList.add('dot');
+          dot.setAttribute('data-index', i);
+          dotsContainer.appendChild(dot);
+      });
+
+      const dots = document.querySelectorAll('.dot');
+      dots[0].classList.add('active');
+
+      function showSlide(i) {
+          index = (i + totalSlides) % totalSlides;
+          carousel.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach(dot => dot.classList.remove('active'));
+          dots[index].classList.add('active');
+      }
+
+      document.querySelector('.prev').addEventListener('click', () => showSlide(index - 1));
+      document.querySelector('.next').addEventListener('click', () => showSlide(index + 1));
+      dots.forEach(dot => dot.addEventListener('click', e => showSlide(parseInt(e.target.dataset.index))));
+
+      // Auto-slide
+      setInterval(() => showSlide(index + 1), 3000);
+  </script>
   </body>
 </html>
