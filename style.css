@@ -20,9 +20,8 @@
     height: auto;
   }
   
-  .navbar {   border: 2px solid rgba(0, 119, 255, 0.6);
-    border-radius: 18px;
-    background-color: #333;
+  .navbar { 
+    background-color: transparent;
     color: white;
     display: flex;
     justify-content: space-between;
