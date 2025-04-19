@@ -40,3 +40,16 @@ function toggleMenu() {
 
       // Auto-slide
       setInterval(() => showSlide(index + 1), 5000);
+
+
+const menu = document.querySelector(".mobile-menu");
+const menuIcon = document.querySelector(".menu-icon");
+const closeBtn = document.querySelector(".close-btn");
+
+menuIcon.addEventListener("click", () => {
+    menu.classList.add("show");
+});
+
+closeBtn.addEventListener("click", () => {
+    menu.classList.remove("show");
+});
