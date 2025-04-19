@@ -62,7 +62,7 @@ img {
     top: 0;
     left: 0;
     transform: translateX(-100%); /* Fully hidden by default */
-    width: 80%;
+    width: 90%;
     height: 100vh;
     background-color: #333;
     z-index: 9999;
@@ -84,8 +84,8 @@ img {
 
 
 .mobile-menu a {
+            margin-top: 20px;
             border-radius:10px;
-            background-color: #000000;
             display: block;
             color: white;
             padding: 12px;
@@ -106,6 +106,7 @@ img {
         }
 /* Close Button */
 .close-btn {
+    margin-top: 50px;
     display: block;
     text-align: right;
     padding: 10px;
