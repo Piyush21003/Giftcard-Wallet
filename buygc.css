@@ -44,8 +44,8 @@ img {
             cursor: pointer;
             display: none; /* By default hidden */
         }
-        /* Mobile Menu (Hidden Initially) */
-.mobile-menu {
+        /* Mobile Menu (Hidden Initially) 
+          .mobile-menu {
             z-index: 9999;
             border: 2px solid rgba(0, 119, 255, 0.6);
             border-radius: 10px;
@@ -56,7 +56,28 @@ img {
             background-color: #333;
             width: 200px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        }
+        }*/
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%); /* Fully hidden */
+    width: 80%;
+    height: 100vh;
+    background-color: #333;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 2px solid rgba(0, 119, 255, 0.6);
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.show {
+    transform: translateX(0); /* Slide in when toggled */
+}
+
 .mobile-menu a {
             border-radius:10px;
             background-color: #000000;
