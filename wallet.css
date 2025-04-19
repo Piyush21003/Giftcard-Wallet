@@ -289,6 +289,10 @@ input {
             .menu-icon {
                 display: block;
             }
+            #userName{
+              justify-content:center;
+              align-items:center;
+            }
         }
 /* Close Button */
 .close-btn {
@@ -312,6 +316,7 @@ input {
 }
 
 #userName{
+  font-size:22px;
   justify-content:center;
   align-items:center;
 }
