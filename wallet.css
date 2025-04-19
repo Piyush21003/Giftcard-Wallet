@@ -257,27 +257,43 @@ input {
             display: none; /* By default hidden */
         }
         /* Mobile Menu (Hidden Initially) */
-        .mobile-menu {
-            z-index: 9999;
-            border: 2px solid rgba(0, 119, 255, 0.6);
-            border-radius: 10px;
-            display: none;
-            position: absolute;
-            top: 80px;
-            right: 10px;
-            background-color: #333;
-            width: 200px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .mobile-menu a {
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%); /* Fully hidden by default */
+    width: 90%;
+    height: 100vh;
+    background-color:black;
+    z-index: 9999;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 2px solid rgba(0, 119, 255, 0.6);
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Always use flex so animation works */
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.mobile-menu.show {
+    transform: translateX(0);  /* Slide in */
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+.mobile-menu a {
+            
+            font-size:22px;
+            margin-top: 20px;
             border-radius:10px;
-            background-color: #000000;
             display: block;
             color: white;
             padding: 12px;
             text-decoration: none;
         }
-        .mobile-menu a:hover {
+.mobile-menu a:hover {
             background-color: #575757;
         }
         #userName{
