@@ -280,6 +280,11 @@ input {
         .mobile-menu a:hover {
             background-color: #575757;
         }
+        #userName{
+          font-size:22px;
+          justify-content:center;
+          align-items:center;
+        }
 
         /* Responsive Design */
         @media screen and (max-width: 768px) {
@@ -290,6 +295,7 @@ input {
                 display: block;
             }
             #userName{
+              font-size:18px;
               justify-content:center;
               align-items:center;
             }
@@ -313,12 +319,6 @@ input {
   flex-wrap:wrap;
   justify-content:space-around;
   
-}
-
-#userName{
-  font-size:22px;
-  justify-content:center;
-  align-items:center;
 }
 
 .gift-card:hover {
