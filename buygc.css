@@ -44,7 +44,7 @@ img {
             cursor: pointer;
             display: none; /* By default hidden */
         }
-        /* Mobile Menu (Hidden Initially) 
+/* Mobile Menu (Hidden Initially) 
           .mobile-menu {
             z-index: 9999;
             border: 2px solid rgba(0, 119, 255, 0.6);
@@ -58,25 +58,30 @@ img {
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         }*/
 .mobile-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    transform: translateX(-100%); /* Fully hidden */
+    transform: translateX(-100%); /* Fully hidden by default */
     width: 80%;
     height: 100vh;
     background-color: #333;
     z-index: 9999;
-    display: none;
     flex-direction: column;
     padding: 20px;
     border-right: 2px solid rgba(0, 119, 255, 0.6);
     box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
+    display: flex; /* Always use flex so animation works */
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .mobile-menu.show {
-    transform: translateX(0); /* Slide in when toggled */
+    transform: translateX(0);  /* Slide in */
+    visibility: visible;
+    pointer-events: auto;
 }
+
 
 .mobile-menu a {
             border-radius:10px;
