@@ -358,9 +358,9 @@ input {
   box-sizing: border-box;
   color: #1f1f1f;
   cursor: pointer;
-  font-family: 'Roboto', arial, sans-serif;
-  font-size: 14px;
-  height: 40px;
+  font-family: 'poppins';
+  font-size: 24px;
+  height: 46px;
   letter-spacing: 0.25px;
   outline: none;
   overflow: hidden;
@@ -400,7 +400,7 @@ input {
 .gsi-material-button .gsi-material-button-contents {
   -webkit-flex-grow: 1;
   flex-grow: 1;
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: 'poppins';
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
