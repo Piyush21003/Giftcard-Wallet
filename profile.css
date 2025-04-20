@@ -167,8 +167,8 @@ body {
     font-size: 17px;
   }
   #option a{
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     color:rgb(208, 206, 206);
   }
