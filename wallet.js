@@ -64,7 +64,7 @@ const firebaseConfig = {
       document.getElementById("popupForm").style.display = "none";
     });
 
-  // Save Gift Card
+  /*// Save Gift Card
     document
     .getElementById("saveGiftCardBtn")
     .addEventListener("click", function () {
@@ -107,7 +107,62 @@ const firebaseConfig = {
       } else {
         alert("Please fill in all fields");
       }
-    });
+    }); */
+  // Save Gift Card
+document
+  .getElementById("saveGiftCardBtn")
+  .addEventListener("click", function () {
+    const brand = document.getElementById("giftCardBrand").value;
+    const code = document.getElementById("giftCardCode").value;
+    const expiry = document.getElementById("giftCardExpiry").value;
+    const pin = document.getElementById("giftCardPin").value;
+    const value = document.getElementById("giftCardValue").value;
+    const userId = auth.currentUser.uid;
+
+    if (brand && code && expiry && pin && value) {
+      database
+        .ref("giftCards/" + userId)
+        .push({
+          brand: brand,
+          code: code,
+          expiry: expiry,
+          pin: pin,
+          value: value,
+        })
+        .then(() => {
+          loadGiftCards(userId); // Gift cards reload
+
+          // ✅ Clear the form fields
+          document.getElementById("giftCardBrand").value = "";
+          document.getElementById("giftCardCode").value = "";
+          document.getElementById("giftCardExpiry").value = "";
+          document.getElementById("giftCardPin").value = "";
+          document.getElementById("giftCardValue").value = "";
+
+          // ✅ Optional: If using a form tag, you could also use:
+          // document.getElementById("yourFormId").reset();
+
+          // ✅ Animation दिखाओ
+          let animation = document.getElementById("successAnimation");
+          animation.style.display = "block"; // Show animation
+          animation.play(); // Start animation
+
+          // 3 सेकंड बाद animation hide कर दो
+          setTimeout(() => {
+            animation.style.display = "none";
+          }, 6000);
+
+          document.getElementById("popupForm").style.display = "none"; // Close popup
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Error adding gift card");
+        });
+    } else {
+      alert("Please fill in all fields");
+    }
+  });
+
 
 
   // Load Gift Cards (Updated to Show Value)
