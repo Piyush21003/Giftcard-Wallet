@@ -327,7 +327,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 });*/
-// giftcard_pdf_download with font size adjustment
+// giftcard_pdf_download with headline
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const downloadPDF = params.get('download');
@@ -342,24 +342,10 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           const originalContainer = document.getElementById('giftCards');
 
-          // Apply font size adjustments to make the text smaller
-          const cards = originalContainer.querySelectorAll('.gift-card');
-          cards.forEach(card => {
-            const title = card.querySelector('h4');
-            const code = card.querySelector('p');
-            const pin = card.querySelector('p:nth-child(4)');
-            const value = card.querySelector('p:nth-child(5)');
-
-            if (title) title.style.fontSize = '14px';
-            if (code) code.style.fontSize = '12px';
-            if (pin) pin.style.fontSize = '12px';
-            if (value) value.style.fontSize = '12px';
-          });
-
-          // Create wrapper div for the PDF content
+          // Create wrapper div
           const wrapper = document.createElement('div');
 
-          // Add heading to the PDF
+          // Add heading
           const title = document.createElement('h2');
           title.textContent = '🎁 My Gift Cards Summary';
           title.style.textAlign = 'center';
@@ -368,17 +354,40 @@ window.addEventListener('DOMContentLoaded', () => {
           title.style.fontFamily = 'Arial, sans-serif';
           wrapper.appendChild(title);
 
-          // Clone the gift card content
+          // Clone giftcards and append
           wrapper.appendChild(originalContainer.cloneNode(true));
 
-          // Generate PDF with updated settings
+          // Apply CSS to control card layout and page breaks
+          const style = document.createElement('style');
+          style.innerHTML = `
+            /* CSS to layout gift cards on each page */
+            .gift-card {
+              font-size: 14px; /* Smaller font size for gift card content */
+              margin-bottom: 15px;
+              page-break-after: always; /* Ensure page break after each card */
+            }
+            .gift-card:nth-child(3n) {
+              page-break-after: always; /* Page break after every 3rd card */
+            }
+            .wrapper {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              gap: 20px;
+            }
+            .wrapper .gift-card {
+              width: 30%; /* Each gift card takes up 1/3rd of the page */
+            }
+          `;
+          wrapper.appendChild(style);
+
+          // Generate PDF
           html2pdf().set({
             margin: 0.5,
             filename: 'MyGiftcards.pdf',
             image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 0.8 },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-            pagebreak: { mode: ['css'], avoid: ['.gift-card'] }
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
           }).from(wrapper).save();
 
         }, 500);
@@ -386,3 +395,4 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 });
+
