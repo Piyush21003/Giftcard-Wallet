@@ -256,13 +256,14 @@ closeBtn.addEventListener("click", () => {
 });
 
 
+//giftcard_pdf_download
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const downloadPDF = params.get('download');
 
   if (downloadPDF === 'pdf') {
     const waitForGiftcards = setInterval(() => {
-      const giftcards = document.querySelectorAll('#giftCards .giftcard');
+      const giftcards = document.querySelectorAll('#giftCards .gift-card');
 
       if (giftcards.length > 0) {
         clearInterval(waitForGiftcards);
@@ -281,4 +282,5 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 });
+
 
