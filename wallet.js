@@ -326,8 +326,8 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }, 300);
   }
-}); */
-// giftcard_pdf_download with heading
+});*/
+// giftcard_pdf_download with font size adjustment
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   const downloadPDF = params.get('download');
@@ -342,10 +342,24 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           const originalContainer = document.getElementById('giftCards');
 
-          // Create wrapper div
+          // Apply font size adjustments to make the text smaller
+          const cards = originalContainer.querySelectorAll('.gift-card');
+          cards.forEach(card => {
+            const title = card.querySelector('h4');
+            const code = card.querySelector('p');
+            const pin = card.querySelector('p:nth-child(4)');
+            const value = card.querySelector('p:nth-child(5)');
+
+            if (title) title.style.fontSize = '14px';
+            if (code) code.style.fontSize = '12px';
+            if (pin) pin.style.fontSize = '12px';
+            if (value) value.style.fontSize = '12px';
+          });
+
+          // Create wrapper div for the PDF content
           const wrapper = document.createElement('div');
 
-          // Add heading
+          // Add heading to the PDF
           const title = document.createElement('h2');
           title.textContent = '🎁 My Gift Cards Summary';
           title.style.textAlign = 'center';
@@ -354,7 +368,7 @@ window.addEventListener('DOMContentLoaded', () => {
           title.style.fontFamily = 'Arial, sans-serif';
           wrapper.appendChild(title);
 
-          // Clone giftcards and append
+          // Clone the gift card content
           wrapper.appendChild(originalContainer.cloneNode(true));
 
           // Generate PDF with updated settings
@@ -372,7 +386,3 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 });
-
-
-
-
