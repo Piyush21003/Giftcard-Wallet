@@ -261,11 +261,24 @@ window.addEventListener('DOMContentLoaded', () => {
   const downloadPDF = params.get('download');
 
   if (downloadPDF === 'pdf') {
-    setTimeout(() => {
-      const giftcards = document.getElementById('giftCards');
-      if (giftcards) {
-        html2pdf().set({ filename: 'MyGiftcards.pdf' }).from(giftcards).save();
+    const waitForGiftcards = setInterval(() => {
+      const giftcards = document.querySelectorAll('#giftCards .giftcard');
+
+      if (giftcards.length > 0) {
+        clearInterval(waitForGiftcards);
+
+        setTimeout(() => {
+          const container = document.getElementById('giftCards');
+          html2pdf().set({
+            margin: 0.5,
+            filename: 'MyGiftcards.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+          }).from(container).save();
+        }, 500);
       }
-    }, 1000); // Delay to allow Firebase to load giftcards
+    }, 300);
   }
 });
+
