@@ -256,7 +256,7 @@ closeBtn.addEventListener("click", () => {
 });
 
 
-/*
+
 //giftcard_pdf_download
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
@@ -283,6 +283,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 }); 
+
+/*
 // giftcard_pdf_download with headline
 window.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
@@ -327,72 +329,3 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 });*/
-// giftcard_pdf_download with headline
-window.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const downloadPDF = params.get('download');
-
-  if (downloadPDF === 'pdf') {
-    const waitForGiftcards = setInterval(() => {
-      const giftcards = document.querySelectorAll('#giftCards .gift-card');
-
-      if (giftcards.length > 0) {
-        clearInterval(waitForGiftcards);
-
-        setTimeout(() => {
-          const originalContainer = document.getElementById('giftCards');
-
-          // Create wrapper div
-          const wrapper = document.createElement('div');
-
-          // Add heading
-          const title = document.createElement('h2');
-          title.textContent = '🎁 My Gift Cards Summary';
-          title.style.textAlign = 'center';
-          title.style.margin = '0 0 20px 0';
-          title.style.fontSize = '24px';
-          title.style.fontFamily = 'Arial, sans-serif';
-          wrapper.appendChild(title);
-
-          // Clone giftcards and append
-          wrapper.appendChild(originalContainer.cloneNode(true));
-
-          // Apply CSS to control card layout and page breaks
-          const style = document.createElement('style');
-          style.innerHTML = `
-            /* CSS to layout gift cards on each page */
-            .gift-card {
-              font-size: 14px; /* Smaller font size for gift card content */
-              margin-bottom: 15px;
-              page-break-after: always; /* Ensure page break after each card */
-            }
-            .gift-card:nth-child(3n) {
-              page-break-after: always; /* Page break after every 3rd card */
-            }
-            .wrapper {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              gap: 20px;
-            }
-            .wrapper .gift-card {
-              width: 30%; /* Each gift card takes up 1/3rd of the page */
-            }
-          `;
-          wrapper.appendChild(style);
-
-          // Generate PDF
-          html2pdf().set({
-            margin: 0.5,
-            filename: 'MyGiftcards.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2 },
-            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-          }).from(wrapper).save();
-
-        }, 500);
-      }
-    }, 300);
-  }
-});
-
