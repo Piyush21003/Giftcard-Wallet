@@ -254,3 +254,18 @@ menuIcon.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     menu.classList.remove("show");
 });
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const downloadPDF = params.get('download');
+
+  if (downloadPDF === 'pdf') {
+    setTimeout(() => {
+      const giftcards = document.getElementById('giftCards');
+      if (giftcards) {
+        html2pdf().set({ filename: 'MyGiftcards.pdf' }).from(giftcards).save();
+      }
+    }, 1000); // Delay to allow Firebase to load giftcards
+  }
+});
