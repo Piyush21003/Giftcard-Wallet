@@ -64,50 +64,7 @@ const firebaseConfig = {
       document.getElementById("popupForm").style.display = "none";
     });
 
-  /*// Save Gift Card
-    document
-    .getElementById("saveGiftCardBtn")
-    .addEventListener("click", function () {
-      const brand = document.getElementById("giftCardBrand").value;
-      const code = document.getElementById("giftCardCode").value;
-      const expiry = document.getElementById("giftCardExpiry").value;
-      const pin = document.getElementById("giftCardPin").value;
-      const value = document.getElementById("giftCardValue").value;
-      const userId = auth.currentUser.uid;
 
-      if (brand && code && expiry && pin && value) {
-        database
-          .ref("giftCards/" + userId)
-          .push({
-            brand: brand,
-            code: code,
-            expiry: expiry,
-            pin: pin,
-            value: value,
-          })
-          .then(() => {
-            loadGiftCards(userId); // Gift cards reload
-
-            //  Animation दिखाओ
-            let animation = document.getElementById("successAnimation");
-            animation.style.display = "block"; // Show animation
-            animation.play(); // Start animation
-
-            // 3 सेकंड बाद animation hide कर दो
-            setTimeout(() => {
-              animation.style.display = "none";
-            }, 6000);
-
-            document.getElementById("popupForm").style.display = "none"; // Close popup
-          })
-          .catch((error) => {
-            console.error(error);
-            alert("Error adding gift card");
-          });
-      } else {
-        alert("Please fill in all fields");
-      }
-    }); */
   // Save Gift Card
 document
   .getElementById("saveGiftCardBtn")
@@ -339,48 +296,3 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 }); 
 
-/*
-// giftcard_pdf_download with headline
-window.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const downloadPDF = params.get('download');
-
-  if (downloadPDF === 'pdf') {
-    const waitForGiftcards = setInterval(() => {
-      const giftcards = document.querySelectorAll('#giftCards .gift-card');
-
-      if (giftcards.length > 0) {
-        clearInterval(waitForGiftcards);
-
-        setTimeout(() => {
-          const originalContainer = document.getElementById('giftCards');
-
-          // Create wrapper div
-          const wrapper = document.createElement('div');
-
-          // Add heading
-          const title = document.createElement('h2');
-          title.textContent = '🎁 My Gift Cards Summary';
-          title.style.textAlign = 'center';
-          title.style.margin = '0 0 20px 0';
-          title.style.fontSize = '24px';
-          title.style.fontFamily = 'Arial, sans-serif';
-          wrapper.appendChild(title);
-
-          // Clone giftcards and append
-          wrapper.appendChild(originalContainer.cloneNode(true));
-
-          // Generate PDF
-          html2pdf().set({
-            margin: 0.5,
-            filename: 'MyGiftcards.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2 },
-            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-          }).from(wrapper).save();
-
-        }, 500);
-      }
-    }, 300);
-  }
-});*/
