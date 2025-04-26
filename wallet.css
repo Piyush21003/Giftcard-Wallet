@@ -448,3 +448,73 @@ input {
   background-color: #303030;
   opacity: 8%;
 }
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+  padding-top: 60px;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Modal title */
+.modal h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+/* Input fields */
+input[type="password"], input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="password"]:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Cancel button (additional style) */
+button#cancelPinBtn {
+  background-color: #f44336; /* Red for cancel */
+}
+
+button#cancelPinBtn:hover {
+  background-color: #e31b0c;
+}
+
+/* Success/Failure message */
+#pinStatus {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  color: #d9534f; /* Default red for failure */
+}
+
+#pinStatus.success {
+  color: #5bc0de; /* Green for success */
+}
