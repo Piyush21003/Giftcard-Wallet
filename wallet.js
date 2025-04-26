@@ -1,54 +1,124 @@
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAE3ISmt0VVUZX-H-dy5YEn1maw9wRS-U0",
-    authDomain: "giftcard-wallet-8a82f.firebaseapp.com",
-    projectId: "giftcard-wallet-8a82f",
-    storageBucket: "giftcard-wallet-8a82f.appspot.com",
-    messagingSenderId: "204834764618",
-    appId: "1:204834764618:web:6504fe9457f2a7fad733b3",
-    measurementId: "G-D6PHVQ7N3S",
-    databaseURL:
-      "https://giftcard-wallet-8a82f-default-rtdb.firebaseio.com/",
-  };
+  apiKey: "AIzaSyAE3ISmt0VVUZX-H-dy5YEn1maw9wRS-U0",
+  authDomain: "giftcard-wallet-8a82f.firebaseapp.com",
+  projectId: "giftcard-wallet-8a82f",
+  storageBucket: "giftcard-wallet-8a82f.appspot.com",
+  messagingSenderId: "204834764618",
+  appId: "1:204834764618:web:6504fe9457f2a7fad733b3",
+  measurementId: "G-D6PHVQ7N3S",
+  databaseURL: "https://giftcard-wallet-8a82f-default-rtdb.firebaseio.com/",
+};
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const database = firebase.database();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const database = firebase.database();
 
-  // Track Auth State
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      document.getElementById("userName").textContent = 
-      `Welcome ${user.displayName || user.phoneNumber}`;
-      document.getElementById("dashboard").style.display = "block";
-      document.getElementById("googleSignInBtn").style.display = "none";
-      document.getElementById("logoutBtn").style.display = "inline-block"; // Show logout
-      loadGiftCards(user.uid); // Fetch user gift cards on login
+// Track Auth State
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    document.getElementById("userName").textContent = `Welcome ${user.displayName || user.phoneNumber}`;
+    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("googleSignInBtn").style.display = "none";
+    document.getElementById("logoutBtn").style.display = "inline-block"; // Show logout
+
+    // Check if the user already has a PIN set
+    checkIfPinExists(user.uid);
+  } else {
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("googleSignInBtn").style.display = "inline-block"; // Show sign-in
+    document.getElementById("logoutBtn").style.display = "none"; // Hide logout
+  }
+});
+
+// Google Sign-In
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+document.getElementById("googleSignInBtn").addEventListener("click", function () {
+  auth
+    .signInWithPopup(googleAuthProvider)
+    .then((result) => {
+      const user = result.user;
+      alert("Google sign-in successful!");
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Error signing in with Google: " + error.message);
+    });
+});
+
+// Check if PIN exists for the user (Old User PIN Check)
+function checkIfPinExists(uid) {
+  const userRef = database.ref(`users/${uid}/pin`);
+  userRef.once('value', (snapshot) => {
+    if (snapshot.exists()) {
+      // PIN already set, verify PIN
+      promptForPin(uid);
     } else {
-      document.getElementById("dashboard").style.display = "none";
-      document.getElementById("googleSignInBtn").style.display =
-        "inline-block"; // Show sign-in
-      document.getElementById("logoutBtn").style.display = "none"; // Hide logout
+      console.log("No PIN set.");
+      showPinModal(uid); // If PIN does not exist, prompt for PIN
     }
   });
+}
 
-  // Google Sign-In
-  const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-  document
-    .getElementById("googleSignInBtn")
-    .addEventListener("click", function () {
-      auth
-        .signInWithPopup(googleAuthProvider)
-        .then((result) => {
-          const user = result.user;
-          alert("Google sign-in successful!");
-        })
-        .catch((error) => {
-          console.error(error);
-          alert("Error signing in with Google: " + error.message);
-        });
+// Prompt user for PIN if PIN exists
+function promptForPin(uid) {
+  const pinPrompt = document.getElementById("pinPromptModal");
+  pinPrompt.style.display = "block";
+
+  document.getElementById("verifyPinBtn").addEventListener("click", function () {
+    const enteredPin = document.getElementById("pinInput").value;
+    const userRef = database.ref(`users/${uid}/pin`);
+    userRef.once('value', (snapshot) => {
+      if (snapshot.exists()) {
+        const storedPin = snapshot.val();
+        const hashedEnteredPin = CryptoJS.SHA256(enteredPin).toString(CryptoJS.enc.Base64); // Hash the entered PIN
+        if (storedPin === hashedEnteredPin) {
+          alert("PIN verified successfully!");
+          pinPrompt.style.display = "none"; // Hide modal
+          loadGiftCards(uid); // Load gift cards
+        } else {
+          alert("Incorrect PIN. Try again.");
+        }
+      }
     });
+  });
+
+  document.getElementById("cancelPinBtn").addEventListener("click", function () {
+    pinPrompt.style.display = "none"; // Hide modal if user cancels
+  });
+}
+
+// Show the PIN modal to set PIN for new users
+function showPinModal(uid) {
+  const pinModal = document.getElementById("pinModal");
+  pinModal.style.display = "block";
+
+  document.getElementById("setPinBtn").addEventListener("click", function () {
+    const pin = document.getElementById("pinInput").value;
+    if (pin.length < 4 || pin.length > 6) {
+      alert("PIN must be 4-6 digits.");
+      return;
+    }
+
+    const hashedPin = CryptoJS.SHA256(pin).toString(CryptoJS.enc.Base64); // Hash the PIN
+    const userRef = database.ref(`users/${uid}`);
+    userRef.update({
+      pin: hashedPin, // Store the hashed PIN
+    }).then(() => {
+      alert("PIN set successfully!");
+      pinModal.style.display = "none"; // Hide modal after setting PIN
+      loadGiftCards(uid); // Now that the PIN is set, load the gift cards
+    }).catch((error) => {
+      console.error("Error setting PIN:", error);
+      alert("Failed to set PIN. Try again later.");
+    });
+  });
+
+  document.getElementById("cancelPinBtn").addEventListener("click", function () {
+    pinModal.style.display = "none"; // Hide modal if user cancels
+  });
+}
 
   // Show Add Gift Card Popup
   document
