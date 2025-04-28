@@ -133,11 +133,15 @@ input {
 }
 
 .popup-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
+border: 2px solid rgba(0, 119, 255, 0.6);
+    background-color: #121d49;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+.popup-content h3 {
+    color: #0077ff;
 }
 
 .popup-content input {
