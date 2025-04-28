@@ -17,21 +17,21 @@ const firebaseConfig = {
   const database = firebase.database();
 
   // Track Auth State
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      document.getElementById("userName").textContent = 
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    document.getElementById("userName").textContent =
       `Welcome ${user.displayName || user.phoneNumber}`;
-      document.getElementById("dashboard").style.display = "block";
-      document.getElementById("googleSignInBtn").style.display = "none";
-      document.getElementById("logoutBtn").style.display = "inline-block"; // Show logout
-      loadGiftCards(user.uid); // Fetch user gift cards on login
-    } else {
-      document.getElementById("dashboard").style.display = "none";
-      document.getElementById("googleSignInBtn").style.display =
-        "inline-block"; // Show sign-in
-      document.getElementById("logoutBtn").style.display = "none"; // Hide logout
-    }
-  });
+    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("googleSignInBtn").style.display = "none";
+    document.getElementById("logoutBtn").style.display = "inline-block"; // Show logout
+    handlePostLogin(user); // <-- Giftcards se pehle PIN ka kaam hoga
+  } else {
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("googleSignInBtn").style.display = "inline-block"; // Show sign-in
+    document.getElementById("logoutBtn").style.display = "none"; // Hide logout
+  }
+});
+
 
   // Google Sign-In
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
@@ -296,3 +296,49 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 }); 
 
+function handlePostLogin(user) {
+  const userId = user.uid;
+  const userRef = database.ref("users/" + userId);
+
+  userRef.once("value")
+    .then((snapshot) => {
+      if (snapshot.exists() && snapshot.val().pin) {
+        // Old user, ask for PIN verification
+        document.getElementById("pinVerifyForm").style.display = "flex";
+        document.getElementById("verifyPinBtn").addEventListener("click", function verifyPIN() {
+          const enteredPin = document.getElementById("verifyPinInput").value;
+          if (enteredPin === snapshot.val().pin) {
+            alert("✅ PIN verified successfully!");
+            document.getElementById("pinVerifyForm").style.display = "none";
+            loadGiftCards(userId); // Now load giftcards
+          } else {
+            alert("❌ Incorrect PIN! Please try again.");
+          }
+        }, { once: true }); // Important: only once event listener
+      } else {
+        // New user, ask to create a PIN
+        document.getElementById("pinCreateForm").style.display = "flex";
+        document.getElementById("savePinBtn").addEventListener("click", function savePIN() {
+          const newPin = document.getElementById("createPinInput").value;
+          if (newPin.length >= 4) {
+            userRef.set({ pin: newPin })
+              .then(() => {
+                alert("✅ PIN created successfully!");
+                document.getElementById("pinCreateForm").style.display = "none";
+                loadGiftCards(userId); // Now load giftcards
+              })
+              .catch((error) => {
+                console.error(error);
+                alert("Error saving PIN: " + error.message);
+              });
+          } else {
+            alert("PIN must be at least 4 digits!");
+          }
+        }, { once: true }); // Important: only once event listener
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Error checking PIN: " + error.message);
+    });
+}
