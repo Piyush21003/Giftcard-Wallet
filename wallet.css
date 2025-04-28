@@ -122,7 +122,9 @@ input {
 
 .popup-form {
   display: none;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4); /* Thoda halka black */
+  backdrop-filter: blur(8px); /* 🔥 Background blur */
+  -webkit-backdrop-filter: blur(8px); /* Safari ke liye */
   position: fixed;
   top: 0;
   left: 0;
@@ -130,6 +132,7 @@ input {
   height: 100%;
   justify-content: center;
   align-items: center;
+  z-index: 9999; /* Always on top */
 }
 
 .popup-content {
