@@ -530,12 +530,13 @@ input {
 /* Popup Box */
 #pinCreateForm .popup-content,
 #pinVerifyForm .popup-content {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 119, 255, 0.5);
-  text-align: center;
-  width: 300px;
+border: 2px solid rgba(0, 119, 255, 0.6);
+    background: #121d49;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.5);
+    text-align: center;
+    width: 300px;
 }
 
 #pinCreateForm h3,
