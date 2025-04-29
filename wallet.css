@@ -522,3 +522,10 @@ border: 2px solid rgba(0, 119, 255, 0.6);
   background-color: #005bb5;
 }
 
+.resetpin{
+  color:white;
+}
+.resetpin a{
+  text-decoration:none;
+}
+  
