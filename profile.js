@@ -54,3 +54,26 @@ menuIcon.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     menu.classList.remove("show");
 });
+
+
+function removePIN() {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    const pinRef = firebase.database().ref("users/" + user.uid + "/pin");
+
+    pinRef.remove()
+      .then(() => {
+        console.log("PIN removed successfully.");
+        document.getElementById("message").textContent = 
+          "PIN removed! Please log out and log in again to create a new PIN.";
+      })
+      .catch((error) => {
+        console.error("Error removing PIN:", error);
+        document.getElementById("message").textContent = 
+          "Error removing PIN. Please try again.";
+      });
+  } else {
+    document.getElementById("message").textContent = 
+      "No user is signed in.";
+  }
+}
