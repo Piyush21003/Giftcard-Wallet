@@ -77,3 +77,4 @@ function removePIN() {
       "No user is signed in.";
   }
 }
+
