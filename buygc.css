@@ -298,4 +298,48 @@ body h3{
     height: 90px;
     width: 140px;
   }
+   #buyopt{
+    margin:10px;
+    border: 2px solid rgba(0, 119, 255, 0.6);
+    width: 140px;
+    height: auto;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+}
+#buyimg{
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 6px solid rgba(0, 119, 255, 0.6);
+  margin: auto;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+#buyername{
+  color: white;
+  border-radius: 10px;
+  border:2px solid rgba(0, 119, 255, 0.6);
+  background-color: rgb(0, 0, 0);
+  margin: 10px;
+  padding: 4px;
+  text-align: center;
+}
+
+#buyoffers{
+  text-align: center;
+  margin: 0px;
+  color:#008fff;
+
+}
+#buybtn{
+  font-size: 17px;
+  border-radius: 6px;
+  text-align: center;
+  margin: 10px;
+  padding: 6px;
+  background-color:#00b894;
+  cursor: pointer;
+  
+}
 }
