@@ -78,3 +78,27 @@ function removePIN() {
   }
 }
 
+//analytical data
+const totalGiftCards = giftCards.length;
+document.getElementById("total-cards").textContent = totalGiftCards;
+
+const totalValue = giftCards.reduce((sum, card) => sum + Number(card.value), 0);
+document.getElementById("total-value").textContent = `₹${totalValue}`;
+
+const recentlyAdded = giftCards.reduce((latest, card) =>
+  new Date(card.addedOn) > new Date(latest.addedOn) ? card : latest
+);
+
+document.getElementById("recent-card").textContent = `${recentlyAdded.brand} - ₹${recentlyAdded.value}`;
+
+const now = new Date();
+const next7Days = new Date();
+next7Days.setDate(now.getDate() + 7);
+
+const expiringSoon = giftCards.filter(card => {
+  const expiryDate = new Date(card.expiry);
+  return expiryDate >= now && expiryDate <= next7Days;
+});
+
+document.getElementById("expiring-soon").textContent = expiringSoon.length;
+
