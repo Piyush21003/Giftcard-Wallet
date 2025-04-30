@@ -194,7 +194,7 @@ document
           text: shareText,
         })
         .then(() => {
-          alert("Gift card shared successfully!");
+          
         })
         .catch((error) => {
           alert("Error sharing: " + error.message);
