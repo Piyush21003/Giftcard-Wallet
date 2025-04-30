@@ -41,28 +41,35 @@
     
     <div class="profile-container">
         <img id="profile-img" src="sec.png" alt="Profile Picture">
-        <h2 id="user-name">Loading...</h2>
+    </div>
+<div class="all-data">
+
+    <div class="personal">
+        <div class="head">Personal Details</div>
+        <h3 id="user-name">Loading...</h3>
         <p>Email: <span id="user-email">Loading...</span></p>
         <p>User ID: <span id="user-uid">Loading...</span></p>
         <p>Last Login: <span id="last-login">Loading...</span></p>
     </div>
+
+    <div class="gc-data">
+        <div class="head">Giftcard-Analytics</div>
+        <p><strong>Total Cards:</strong> <span id="total-cards">--</span>
+        <strong>Total Value:</strong> <span id="total-value">--</span></p>
+        <p><strong>Most Used Brand:</strong> <span id="most-used-brand">--</span></p>
+        <p><strong>Recently Added:</strong> <span id="recent-card">--</span></p>
+        <p><strong>Expiring Soon (7d):</strong> <span id="expiring-soon">--</span></p>
+    </div>
+
+</div>
+
     <div class="profileopt">
-        
         <div id="option"><a href="mailto:playmaxxserver@gmail.com?subject=Activate_ExpiryAlert&body=Activate%20Expiry%20Alert%20service%20in%20my%20GiftCard-Wallet%20Account.%0A%0A GCWALLET_USER"><span class="material-icons">notifications</span>ExpiryAlert</a></div>
         <div id="option"><a href="wallet.html?download=pdf"><span class="material-icons">download</span>GiftcardPdf</a></div>
         <div id="option"><a href="mailto:playmaxxserver@gmail.com?subject=Request%20for%20Deletion&body=Hii,%0A%0ARequest%20for%20Deletion%7BUSERAcc%26USERData%7D%0A%0A%3EDeletion%20of%20User%20acc.%20From%20server%F0%9F%97%B3%EF%B8%8F%0A%3EDeletion%20of%20User%20data%20From%20Firebasedb%F0%9F%92%B3%0A%0AFinal%20consent%20by%20User%E2%9C%85%0AAfter%20sending%20%F0%9F%93%A7mail"><span class="material-icons">delete_forever</span>DeleteACC.</a></div>
+        <div id="option"><button onclick="removePIN()">Reset PIN</button></div>
     </div>
-    
-    <button onclick="removePIN()">Remove PIN</button>
-<div id="message" style="margin-top:10px; color: green;"></div>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-  <div><strong>Total Cards:</strong> <span id="total-cards">--</span></div>
-  <div><strong>Total Value:</strong> <span id="total-value">--</span></div>
-  <div><strong>Most Used Brand:</strong> <span id="most-used-brand">--</span></div>
-  <div><strong>Recently Added:</strong> <span id="recent-card">--</span></div>
-  <div><strong>Expiring Soon (7d):</strong> <span id="expiring-soon">--</span></div>
-</div>
+    <div id="message"></div>
 
     
     <marquee>Activate ExpiryAlert for getting giftcard ExpiryAlert in your Email | Request for Deletion of USERAcc. & USERData</marquee>
