@@ -42,7 +42,7 @@ auth.onAuthStateChanged((user) => {
         .signInWithPopup(googleAuthProvider)
         .then((result) => {
           const user = result.user;
-          alert("Google sign-in successful!");
+          
         })
         .catch((error) => {
           console.error(error);
@@ -212,7 +212,7 @@ document
         .signOut()
         .then(() => {
           sessionStorage.removeItem("pinVerified");
-          alert("Logged out successfully!");
+          
         })
         .catch((error) => {
           console.error(error);
