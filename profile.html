@@ -56,9 +56,17 @@
     <button onclick="removePIN()">Remove PIN</button>
 <div id="message" style="margin-top:10px; color: green;"></div>
 
-    <marquee>Activate ExpiryAlert for getting giftcard ExpiryAlert in your Email | Request for Deletion of USERAcc. & USERData</marquee>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+  <div><strong>Total Cards:</strong> <span id="total-cards">--</span></div>
+  <div><strong>Total Value:</strong> <span id="total-value">--</span></div>
+  <div><strong>Most Used Brand:</strong> <span id="most-used-brand">--</span></div>
+  <div><strong>Recently Added:</strong> <span id="recent-card">--</span></div>
+  <div><strong>Expiring Soon (7d):</strong> <span id="expiring-soon">--</span></div>
+</div>
 
     
+    <marquee>Activate ExpiryAlert for getting giftcard ExpiryAlert in your Email | Request for Deletion of USERAcc. & USERData</marquee>
+
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
