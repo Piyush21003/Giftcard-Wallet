@@ -160,7 +160,7 @@ document
     tempInput.select();
     document.execCommand("copy");
     document.body.removeChild(tempInput);
-    alert("Copied to clipboard!");
+    
   }
 
   // Delete Gift Card
