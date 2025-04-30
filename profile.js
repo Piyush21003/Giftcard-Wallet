@@ -78,27 +78,59 @@ function removePIN() {
   }
 }
 
-//analytical data
-const totalGiftCards = giftCards.length;
-document.getElementById("total-cards").textContent = totalGiftCards;
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    const giftCardsRef = firebase.database().ref("giftCards/" + user.uid);
 
-const totalValue = giftCards.reduce((sum, card) => sum + Number(card.value), 0);
-document.getElementById("total-value").textContent = `₹${totalValue}`;
+    giftCardsRef.once("value").then((snapshot) => {
+      const data = snapshot.val();
+      if (!data) {
+        document.getElementById("total-cards").textContent = 0;
+        document.getElementById("total-value").textContent = "₹0";
+        document.getElementById("most-used-brand").textContent = "None";
+        document.getElementById("recent-card").textContent = "None";
+        document.getElementById("expiring-soon").textContent = "0";
+        return;
+      }
 
-const recentlyAdded = giftCards.reduce((latest, card) =>
-  new Date(card.addedOn) > new Date(latest.addedOn) ? card : latest
-);
+      const giftCards = Object.values(data);
 
-document.getElementById("recent-card").textContent = `${recentlyAdded.brand} - ₹${recentlyAdded.value}`;
+      // Total cards
+      document.getElementById("total-cards").textContent = giftCards.length;
 
-const now = new Date();
-const next7Days = new Date();
-next7Days.setDate(now.getDate() + 7);
+      // Total value
+      const totalValue = giftCards.reduce((sum, card) => sum + Number(card.value || 0), 0);
+      document.getElementById("total-value").textContent = `₹${totalValue}`;
 
-const expiringSoon = giftCards.filter(card => {
-  const expiryDate = new Date(card.expiry);
-  return expiryDate >= now && expiryDate <= next7Days;
+      // Most used brand
+      const brandUsage = {};
+      giftCards.forEach(card => {
+        const brand = card.brand || "Unknown";
+        brandUsage[brand] = (brandUsage[brand] || 0) + (card.used || 1);
+      });
+      const mostUsedBrand = Object.entries(brandUsage).reduce((a, b) => b[1] > a[1] ? b : a, ["None", 0]);
+      document.getElementById("most-used-brand").textContent = `${mostUsedBrand[0]} (${mostUsedBrand[1]} times)`;
+
+      // Recently added
+      const recentlyAdded = giftCards.reduce((latest, card) => {
+        return new Date(card.addedOn || 0) > new Date(latest.addedOn || 0) ? card : latest;
+      }, {});
+      document.getElementById("recent-card").textContent = recentlyAdded.brand
+        ? `${recentlyAdded.brand} - ₹${recentlyAdded.value}`
+        : "None";
+
+      // Expiring soon
+      const now = new Date();
+      const next7 = new Date();
+      next7.setDate(now.getDate() + 7);
+      const expiringSoon = giftCards.filter(card => {
+        const expiry = new Date(card.expiry);
+        return expiry >= now && expiry <= next7;
+      });
+      document.getElementById("expiring-soon").textContent = expiringSoon.length;
+
+    }).catch(err => {
+      console.error("Error fetching gift cards:", err);
+    });
+  }
 });
-
-document.getElementById("expiring-soon").textContent = expiringSoon.length;
-
