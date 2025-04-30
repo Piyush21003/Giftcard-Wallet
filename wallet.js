@@ -296,7 +296,14 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 }); 
 
+
+
 function handlePostLogin(user) {
+    if (sessionStorage.getItem("pinVerified") === "true") {
+  console.log("✅ PIN already verified this session, skipping popup");
+  loadGiftCards(user.uid); // Load giftcards directly
+  return;
+}
   const userId = user.uid;
   const userRef = database.ref("users/" + userId);
 
@@ -311,6 +318,7 @@ function handlePostLogin(user) {
           const enteredPin = document.getElementById("verifyPinInput").value;
           if (enteredPin === snapshot.val().pin) {
             alert("✅ PIN verified successfully!");
+            sessionStorage.setItem("pinVerified", "true");
             document.getElementById("pinVerifyForm").style.display = "none";
             loadGiftCards(userId); // Load giftcards after PIN verified
           } else {
@@ -329,6 +337,7 @@ function handlePostLogin(user) {
             userRef.set({ pin: newPin })
               .then(() => {
                 alert("✅ PIN created successfully!");
+                sessionStorage.setItem("pinVerified", "true");
                 document.getElementById("pinCreateForm").style.display = "none";
                 loadGiftCards(userId); // Load giftcards after PIN created
               })
