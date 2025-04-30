@@ -211,6 +211,7 @@ document
       auth
         .signOut()
         .then(() => {
+          sessionStorage.removeItem("pinVerified");
           alert("Logged out successfully!");
         })
         .catch((error) => {
