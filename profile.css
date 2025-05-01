@@ -180,16 +180,20 @@ body {
 
 
 .profileopt{
+    border: 2px solid rgba(0, 119, 255, 0.6);
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #121d49;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    gap:8px;
+    gap: 8px;
   }
   #option{
-    border: 2px solid rgba(0,119,255,0.6);
+border: 2px solid rgba(0, 119, 255, 0.6);
     border-radius: 8px;
     padding: 8px;
-    width: 150px;
+    width: 135px;
     margin-top: 10px;
     margin-bottom: 10px;
     cursor: pointer;
