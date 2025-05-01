@@ -374,7 +374,6 @@ function highlightExpiry(cardElement, expiryDateStr) {
   if (daysDiff < 0) {
     // Expired
     cardElement.style.border = "2px solid red";
-    cardElement.style.backgroundColor = "#ffe5e5";
     badge = `<span class="badge expired">❌ Expired</span>`;
   } else if (daysDiff <= 7) {
     // Expiring Soon
