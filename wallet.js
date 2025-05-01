@@ -133,6 +133,7 @@ document
           const giftCard = giftCards[key];
           const cardElement = document.createElement("div");
           cardElement.classList.add("gift-card");
+          const expiryBadge = highlightExpiry(cardElement, giftCard.expiry); // 🔥 Get badge HTML
           cardElement.innerHTML = `
       <h4>${giftCard.brand} Gift Card</h4>
       <p><strong>Code:</strong> ${giftCard.code} <button class="tool-btn" onclick="copyText('${giftCard.code}')"><span class="material-icons">content_copy</span></button></p>
@@ -142,7 +143,7 @@ document
      
       
       <button class="tool-btn" onclick="deleteGiftCard('${key}')"><span class="material-icons">delete</span></button>
-      <button class="tool-btn" onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')"><span class="material-icons">share</span></button>
+      <button class="tool-btn" onclick="shareGiftCard('${giftCard.brand}', '${giftCard.code}', '${giftCard.pin}', '${giftCard.value}')"><span class="material-icons">share</span></button>${expiryBadge} <!-- 🔥 Insert badge here -->
     `;
           giftCardsContainer.appendChild(cardElement);
         }
@@ -356,4 +357,30 @@ function handlePostLogin(user) {
       console.error(error);
       alert("Error checking PIN: " + error.message);
     });
+}
+
+//expiryhighlight
+function highlightExpiry(cardElement, expiryDateStr) {
+  const expiryDate = new Date(expiryDateStr);
+  const today = new Date();
+
+  expiryDate.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 0, 0);
+
+  const daysDiff = Math.floor((expiryDate - today) / (1000 * 60 * 60 * 24));
+
+  let badge = ""; // Empty by default
+
+  if (daysDiff < 0) {
+    // Expired
+    cardElement.style.border = "2px solid red";
+    cardElement.style.backgroundColor = "#ffe5e5";
+    badge = `<span class="badge expired">❌ Expired</span>`;
+  } else if (daysDiff <= 7) {
+    // Expiring Soon
+    cardElement.style.border = "2px solid #ff9800";
+    badge = `<span class="badge expiring">⚠️ Expiring Soon</span>`;
+  }
+
+  return badge; // Return badge HTML
 }
