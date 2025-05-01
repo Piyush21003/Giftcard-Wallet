@@ -65,7 +65,7 @@ function removePIN() {
       .then(() => {
         console.log("PIN removed successfully.");
         document.getElementById("message").textContent = 
-          "PIN removed! Please log out and log in again to create a new PIN.";
+          "PIN removed! Please visit mywallet_page again to create a new PIN.";
       })
       .catch((error) => {
         console.error("Error removing PIN:", error);
