@@ -530,3 +530,14 @@ border: 2px solid rgba(0, 119, 255, 0.6);
   text-decoration:none;
 }
   
+span.badge.expiring {
+    position: absolute;
+    bottom: 15px;
+    right: 8px;
+}
+
+span.badge.expired {
+    position: absolute;
+    bottom: 15px;
+    right: 8px;
+}
