@@ -145,17 +145,18 @@ body {
     color:rgba(0,119,255,0.6)
   }
   .personal{
-    width:900px;
+    flex: 1;
+    width: 900px;
     height: 220px;
-    margin:10px;
+    margin: 10px;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid rgba(0, 119, 255, 0.6);
   }
   .gc-data{
-    width:360px;
-    height:220px;
-    margin:10px;
+    width: 380px;
+    height: 220px;
+    margin: 10px;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid rgba(0, 119, 255, 0.6);
