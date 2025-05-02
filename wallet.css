@@ -11,7 +11,7 @@ body {
   padding: 20px;
   text-align: center;
 }
-img {
+.logoimg {
     margin: 8px;
     width: 340px;
     height: auto;
