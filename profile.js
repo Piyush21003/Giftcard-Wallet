@@ -134,3 +134,14 @@ firebase.auth().onAuthStateChanged((user) => {
     });
   }
 });
+
+// Chat Support Mail Link Setup
+setTimeout(() => {
+  const name = document.getElementById("user-name").innerText;
+  const email = document.getElementById("user-email").innerText;
+  const uid = document.getElementById("user-uid").innerText;
+
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nUser ID: ${uid}\n\nMessage: `);
+  const href = `mailto:playmaxxserver@gmail.com?subject=Chat%20Support&body=${body}`;
+  document.getElementById("chatSupportLink").href = href;
+}, 1000); // waits 1 second to ensure data is loaded
