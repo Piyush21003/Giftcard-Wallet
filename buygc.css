@@ -58,19 +58,7 @@ body h3{
               cursor: pointer;
               display: none; /* By default hidden */
           }
-  /* Mobile Menu (Hidden Initially) 
-            .mobile-menu {
-              z-index: 9999;
-              border: 2px solid rgba(0, 119, 255, 0.6);
-              border-radius: 10px;
-              display: none;
-              position: absolute;
-              top: 80px;
-              right: 10px;
-              background-color: #333;
-              width: 200px;
-              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-          }*/
+
   .mobile-menu {
       position: fixed;
       top: 0;
