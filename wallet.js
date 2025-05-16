@@ -24,7 +24,7 @@ auth.onAuthStateChanged((user) => {
     document.getElementById("dashboard").style.display = "block";
     document.getElementById("googleSignInBtn").style.display = "none";
     document.getElementById("logoutBtn").style.display = "inline-block"; // Show logout
-    handlePostLogin(user); // <-- Giftcards se pehle PIN ka kaam hoga
+    handlePostLogin(user); 
   } else {
     document.getElementById("dashboard").style.display = "none";
     document.getElementById("googleSignInBtn").style.display = "inline-block"; // Show sign-in
@@ -96,15 +96,14 @@ document
           document.getElementById("giftCardPin").value = "";
           document.getElementById("giftCardValue").value = "";
 
-          // ✅ Optional: If using a form tag, you could also use:
-          // document.getElementById("yourFormId").reset();
+          
 
-          // ✅ Animation दिखाओ
+          // ✅ Animation
           let animation = document.getElementById("successAnimation");
           animation.style.display = "block"; // Show animation
           animation.play(); // Start animation
 
-          // 3 सेकंड बाद animation hide कर दो
+        
           setTimeout(() => {
             animation.style.display = "none";
           }, 6000);
@@ -175,7 +174,7 @@ document
             .remove()
             .then(() => {
                 alert("✅ Gift card successfully deleted!");
-                loadGiftCards(userId); // List refresh karega
+                loadGiftCards(userId); 
             })
             .catch((error) => {
                 console.error(error);
@@ -226,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         document.getElementById("loader").style.display = "none"; // Hide loader
         document.getElementById("container").style.display = "block"; // Show main page
-    }, 4000); // Loader 5 sec tak dikhega
+    }, 4000); // Loader 5 sec 
 });
 
 //searchbar
