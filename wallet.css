@@ -35,10 +35,8 @@ body {
             font-size: 18px;
             font-weight: bold;
             border-radius: 12px;
-            /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);*/
             box-shadow: 0 0 20px rgba(0, 119, 255, 0.3), 
                         0 0 40px rgba(0, 119, 255, 0.2);
-            /*border: 2px solid rgba(255, 255, 255, 0.1);*/
             border: 2px solid rgba(0, 119, 255, 0.6);
             position: relative;
             overflow: hidden;
@@ -46,7 +44,6 @@ body {
 .gift-card::before {
             content: "";
             position: absolute;
-            /*width: 90px;*/
             height: 90px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
@@ -57,7 +54,6 @@ body {
 .gift-card::after {
             content: "";
             position: absolute;
-            /*width: 110px;*/
             height: 110px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 50%;
@@ -123,9 +119,9 @@ input {
 
 .popup-form {
   display: none;
-  background-color: rgba(0, 0, 0, 0.4); /* Thoda halka black */
-  backdrop-filter: blur(8px); /* 🔥 Background blur */
-  -webkit-backdrop-filter: blur(8px); /* Safari ke liye */
+  background-color: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px); 
   position: fixed;
   top: 0;
   left: 0;
@@ -133,7 +129,7 @@ input {
   height: 100%;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Always on top */
+  z-index: 9999; 
 }
 
 .popup-content {
@@ -348,8 +344,8 @@ border: 2px solid rgba(0, 119, 255, 0.6);
 }
 
 .gift-card:hover {
-  transform: translateY(-15px); /* Card upar jayega */
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Shadow deep ho jayega */
+  transform: translateY(-15px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
 /*google signin css*/
