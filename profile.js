@@ -111,14 +111,6 @@ firebase.auth().onAuthStateChanged((user) => {
       const mostUsedBrand = Object.entries(brandUsage).reduce((a, b) => b[1] > a[1] ? b : a, ["None", 0]);
       document.getElementById("most-used-brand").textContent = `${mostUsedBrand[0]} (${mostUsedBrand[1]} times)`;
 
-      // Recently added
-      const recentlyAdded = giftCards.reduce((latest, card) => {
-        return new Date(card.addedOn || 0) > new Date(latest.addedOn || 0) ? card : latest;
-      }, {});
-      document.getElementById("recent-card").textContent = recentlyAdded.brand
-        ? `${recentlyAdded.brand} - ₹${recentlyAdded.value}`
-        : "None";
-
       // Expiring soon
       const now = new Date();
       const next7 = new Date();
