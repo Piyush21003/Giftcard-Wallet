@@ -119,18 +119,21 @@ firebase.auth().onAuthStateChanged((user) => {
         ? `${recentlyAdded.brand} - ₹${recentlyAdded.value}`
         : "None";
 
+      // Expiring soon
+      const now = new Date();
+      const next7 = new Date();
+      next7.setDate(now.getDate() + 7);
+      const expiringSoon = giftCards.filter(card => {
+        const expiry = new Date(card.expiry);
+        return expiry >= now && expiry <= next7;
+      });
+      document.getElementById("expiring-soon").textContent = expiringSoon.length;
 
-// Expiring soon
-const now = new Date();
-const next7 = new Date();
-next7.setDate(now.getDate() + 7);
-
-const expiringSoon = giftCards.filter(card => {
-  const expiry = new Date(card.expiry);
-  return expiry >= now && expiry <= next7;
+    }).catch(err => {
+      console.error("Error fetching gift cards:", err);
+    });
+  }
 });
-document.getElementById("expiring-soon").textContent = expiringSoon.length;
-
 
 // Chat Support Mail Link Setup
 setTimeout(() => {
@@ -141,4 +144,4 @@ setTimeout(() => {
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nUser ID: ${uid}\n\nMessage: `);
   const href = `mailto:playmaxxserver@gmail.com?subject=Chat%20Support&body=${body}`;
   document.getElementById("chatSupportLink").href = href;
-}, 1000); // waits 1 second to ensure data is loaded
+}, 1000); 
