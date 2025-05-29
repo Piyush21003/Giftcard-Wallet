@@ -111,21 +111,24 @@ firebase.auth().onAuthStateChanged((user) => {
       const mostUsedBrand = Object.entries(brandUsage).reduce((a, b) => b[1] > a[1] ? b : a, ["None", 0]);
       document.getElementById("most-used-brand").textContent = `${mostUsedBrand[0]} (${mostUsedBrand[1]} times)`;
 
-      // Expiring soon
-      const now = new Date();
-      const next7 = new Date();
-      next7.setDate(now.getDate() + 7);
-      const expiringSoon = giftCards.filter(card => {
-        const expiry = new Date(card.expiry);
-        return expiry >= now && expiry <= next7;
-      });
-      document.getElementById("expiring-soon").textContent = expiringSoon.length;
+// Expiry Soon
+const now = new Date();
+const next7 = new Date();
+next7.setDate(now.getDate() + 7);
 
-    }).catch(err => {
-      console.error("Error fetching gift cards:", err);
-    });
+let expiringSoonCount = 0;
+
+giftCards.forEach(card => {
+  if (card.expiry) {
+    const expiryDate = new Date(card.expiry);
+    if (!isNaN(expiryDate) && expiryDate >= now && expiryDate <= next7) {
+      expiringSoonCount++;
+    }
   }
 });
+
+document.getElementById("expiring-soon").textContent = expiringSoonCount;
+
 
 // Chat Support Mail Link Setup
 setTimeout(() => {
