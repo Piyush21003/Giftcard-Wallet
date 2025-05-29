@@ -120,20 +120,18 @@ firebase.auth().onAuthStateChanged((user) => {
         : "None";
 
       // Expiring soon
-      const now = new Date();
-      const next7 = new Date();
-      next7.setDate(now.getDate() + 7);
-      const expiringSoon = giftCards.filter(card => {
-        const expiry = new Date(card.expiry);
-        return expiry >= now && expiry <= next7;
-      });
-      document.getElementById("expiring-soon").textContent = expiringSoon.length;
+const now = new Date();
+const next7 = new Date();
+next7.setDate(now.getDate() + 7);
 
-    }).catch(err => {
-      console.error("Error fetching gift cards:", err);
-    });
-  }
+const expiringSoon = giftCards.filter(card => {
+  if (!card.expiry) return false; // Skip if no expiry
+  const expiry = new Date(card.expiry);
+  return !isNaN(expiry) && expiry >= now && expiry <= next7;
 });
+
+document.getElementById("expiring-soon").textContent = expiringSoon.length;
+
 
 // Chat Support Mail Link Setup
 setTimeout(() => {
